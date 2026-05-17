@@ -17,3 +17,6 @@
 /Excalidraw/
 /数据库/
 /学习笔记/
+
+# 忽略整个 Obsidian 配置文件夹（不同设备的配置不应同步）
+.obsidian/
