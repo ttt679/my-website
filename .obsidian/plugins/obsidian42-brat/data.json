@@ -1,0 +1,24 @@
+{
+  "pluginList": [
+    "zibuyu2015831/obsidian-copilot-chinese"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "zibuyu2015831/obsidian-copilot-chinese",
+      "version": ""
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": true,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": false,
+  "notificationsEnabled": true,
+  "globalTokenName": "",
+  "personalAccessToken": "",
+  "selectLatestPluginVersionByDefault": false,
+  "allowIncompatiblePlugins": false
+}

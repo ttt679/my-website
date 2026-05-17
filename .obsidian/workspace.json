@@ -1,0 +1,253 @@
+{
+  "main": {
+    "id": "e89d839a4496aa40",
+    "type": "split",
+    "children": [
+      {
+        "id": "62381da0503ca4d4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "41a488763ddfb2a9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "个人智能体完整工作流程与架构.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "个人智能体完整工作流程与架构"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d9f3449b86bd740a",
+    "type": "split",
+    "children": [
+      {
+        "id": "2e304628a1e9b377",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4c53e0b0d81e6296",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "6e1307f0d4e8328b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "f21cd9420e1c1e5e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 287.5
+  },
+  "right": {
+    "id": "356ca2fab17ed18b",
+    "type": "split",
+    "children": [
+      {
+        "id": "f9e1ea73444a1278",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "43dd0a79c00f73a4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-04-27 23.07.00.excalidraw.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Drawing 2026-04-27 23.07.00.excalidraw 的反向链接列表"
+            }
+          },
+          {
+            "id": "58ec6ef2d11c3880",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-04-27 23.07.00.excalidraw.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Drawing 2026-04-27 23.07.00.excalidraw 的出链列表"
+            }
+          },
+          {
+            "id": "ede8cb95519368fa",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "ab888cbf5c190428",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "ed04e81b66438a42",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-04-27 23.07.00.excalidraw.md",
+                "followCursor": true,
+                "showSearch": true,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Drawing 2026-04-27 23.07.00.excalidraw 的大纲"
+            }
+          },
+          {
+            "id": "d7b5d9627ee9c3ff",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot-Chinese"
+            }
+          },
+          {
+            "id": "cb0d8bdb67cef37d",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "horizontal",
+    "width": 369.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "graph:查看关系图谱": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian42-brat:BRAT": false,
+      "copilot-chinese:Copilot 会话": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "publish:发布更改": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "4c53e0b0d81e6296",
+  "lastOpenFiles": [
+    "个人智能体完整工作流程与架构.md",
+    "GAIO架构师个人基础设施落地指南 v1.0.md",
+    "AI智能体-Token二分法与中间层过路费模式.md",
+    "智能体架构与产品形式构思.md",
+    "未命名.md",
+    "Inbox/meeting_minutes_20260515_140618.md",
+    "Excalidraw/Drawing 2026-04-30 19.47.18.excalidraw.md",
+    "学习笔记/AI智能体中间层产品化策略研讨会_20260515_142826.md",
+    "学习笔记/AI行业MCP与CLI争议下的个人用户需求分析_2026-04-28.md",
+    "学习笔记/普通人用AI在金融领域降维打击的思路_2026-04-29.md",
+    "项目稳定性与可扩展性评估报告.md",
+    "梳理智能体项目层级架构.md",
+    "Inbox",
+    "内容创作风格优化：从“我的故事”到“你的镜子”.md",
+    "学习笔记/公猫配种与绝育决策指南.md",
+    "什么是机器学习.md",
+    "量子计算基础讨论纪要.md",
+    "量子计算基础知识探讨.md",
+    "量子计算与量子纠缠核心概念.md",
+    "学习笔记/MCP Host 搭建与配置完全指南_2026-04-22.md",
+    "test_update.md",
+    "学习笔记/AI协作内容创作方法论与方向指南_2026-04-27.md",
+    "学习笔记/AI时代学习路径的转变与对话沉淀工具开发_2026-04-21.md",
+    "学习笔记/血糖监测与健康咨询要点整理_2026-04-21.md",
+    "学习笔记/人机协作边界探索：AI视频剪辑中的精准分工实践_2026-04-23.md",
+    "学习笔记/个人定制化AI工具的范式总结_2026-04-27.md",
+    "个人数据库/人与AI协作：我的三条思考框架.md",
+    "未命名.canvas",
+    "杂项",
+    "Excalidraw",
+    "个人数据库",
+    "视频字幕文件/video_chapters_20260426_011157.srt",
+    "视频字幕文件",
+    "copilot-conversations",
+    "copilot/copilot-custom-prompts",
+    "copilot",
+    "学习笔记",
+    "未命名 1.canvas"
+  ]
+}

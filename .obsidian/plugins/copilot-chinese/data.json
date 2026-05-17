@@ -1,0 +1,146 @@
+{
+  "openAIApiKey": "",
+  "openAIOrgId": "",
+  "huggingfaceApiKey": "",
+  "cohereApiKey": "",
+  "anthropicApiKey": "",
+  "azureOpenAIApiKey": "",
+  "azureOpenAIApiInstanceName": "",
+  "azureOpenAIApiDeploymentName": "",
+  "azureOpenAIApiVersion": "",
+  "azureOpenAIApiEmbeddingDeploymentName": "",
+  "googleApiKey": "",
+  "openRouterAiApiKey": "",
+  "defaultModelKey": "deepseek-chat|3rd party (openai-format)",
+  "embeddingModelKey": "text-embedding-3-small|openai",
+  "temperature": 0.1,
+  "maxTokens": 1000,
+  "contextTurns": 15,
+  "userSystemPrompt": "你是 Obsidian Copilot，一个集成在 Obsidian 中的 AI 助手。你的任务是帮助用户处理笔记、回答基于知识库的问题、提供创作建议。\n\n## 核心原则\n1. **始终使用中文回答**，除非用户明确要求其他语言。\n2. **优先利用笔记库中的信息**：当用户提问时，优先从当前打开的笔记或整个知识库中寻找答案。如果信息不足，再结合通用知识补充。\n3. **回答要简洁、结构化**：善用列表、标题、引用块等 Markdown 格式，让回答易于阅读和保存。\n4. **主动提供延伸帮助**：在回答完问题后，可以主动询问是否需要进一步总结、提炼要点或生成标签。\n\n## 行为规范\n- 当用户引用笔记（如 @笔记名 或 [[笔记名]]）时，请仔细阅读该笔记内容并基于它回答。\n- 如果用户要求“总结”、“分析”、“改写”等操作，请直接输出结果，不要添加额外解释。\n- 如果不确定用户意图，请主动提问澄清，而不是猜测。\n- 禁止编造笔记中不存在的信息；如果知识库中没有相关内容，请如实告知。\n\n## 输出格式偏好\n- 使用 Markdown 标题、列表、加粗等格式增强可读性。\n- 对于对比类问题，优先使用表格。\n- 对于步骤类问题，使用有序列表。",
+  "openAIProxyBaseUrl": "",
+  "openAIEmbeddingProxyBaseUrl": "",
+  "stream": true,
+  "defaultSaveFolder": "copilot-conversations",
+  "autosaveChat": true,
+  "customPromptsFolder": "copilot-prompts",
+  "indexVaultToVectorStore": "ON MODE SWITCH",
+  "qaExclusionPaths": "",
+  "chatNoteContextPath": "",
+  "chatNoteContextTags": [],
+  "debug": false,
+  "enableEncryption": true,
+  "maxSourceChunks": 3,
+  "groqApiKey": "",
+  "activeModels": [
+    {
+      "name": "command-r",
+      "provider": "cohereai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "baseUrl": "",
+      "apiKey": ""
+    },
+    {
+      "name": "deepseek-chat",
+      "provider": "3rd party (openai-format)",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "apiKey": "enc_djEw/Lq9qAd8KnbYEnfieS3pZWUF2Yr8OPO0Y4tr4TSS7Szu9ZQQQ45FqCh/tfiw+GOH1ORUzZBUTUfFpLjTceQD",
+      "enabled": true,
+      "isBuiltIn": false,
+      "enableCors": true,
+      "isEmbeddingModel": false
+    }
+  ],
+  "activeEmbeddingModels": [
+    {
+      "name": "text-embedding-3-small",
+      "provider": "openai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    },
+    {
+      "name": "text-embedding-3-large",
+      "provider": "openai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    },
+    {
+      "name": "embed-multilingual-light-v3.0",
+      "provider": "cohereai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    },
+    {
+      "name": "azure-openai",
+      "provider": "azure_openai",
+      "enabled": true,
+      "isBuiltIn": true,
+      "isEmbeddingModel": true
+    }
+  ],
+  "enabledCommands": {
+    "fix-grammar-prompt": {
+      "enabled": true,
+      "name": "检查选中内容的语法与拼写"
+    },
+    "summarize-prompt": {
+      "enabled": true,
+      "name": "根据选中的内容生成摘要"
+    },
+    "generate-toc-prompt": {
+      "enabled": true,
+      "name": "根据选中的内容生成表格"
+    },
+    "extract-Key-prompt": {
+      "enabled": true,
+      "name": "从选中的内容里提取重难点单词"
+    },
+    "simplify-prompt": {
+      "enabled": true,
+      "name": "深入分析选中的内容"
+    },
+    "paragraphing-prompt": {
+      "enabled": true,
+      "name": "智能分段"
+    },
+    "transalte-to-english-prompt": {
+      "enabled": true,
+      "name": "将选中的内容翻译成英文并给出解释"
+    },
+    "transalte-to-chinese-prompt": {
+      "enabled": true,
+      "name": "将选中内容翻译成中文并给出解释"
+    },
+    "get-tags-prompt": {
+      "enabled": true,
+      "name": "从选中的内容里获取关键词作为标签"
+    },
+    "make-shorter-prompt": {
+      "enabled": true,
+      "name": "缩短选中的内容"
+    },
+    "make-longer-prompt": {
+      "enabled": true,
+      "name": "扩写选中的内容"
+    },
+    "english-explain-prompt": {
+      "enabled": true,
+      "name": "用英文解释选中的内容"
+    },
+    "perfect-text-prompt": {
+      "enabled": true,
+      "name": "优化选中的内容【去除错别字+智能分段+修复标点符号】"
+    },
+    "translate-selection-prompt": {
+      "enabled": true,
+      "name": "翻译选中的内容"
+    },
+    "change-tone-prompt": {
+      "enabled": true,
+      "name": "改写选中内容的风格"
+    }
+  }
+}
