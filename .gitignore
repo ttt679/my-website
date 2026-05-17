@@ -1,18 +1,18 @@
-# 排除私人文件夹
-数据库/
-学习笔记/
-杂项/
-Excalidraw/
-
-# 排除特定文件
+# 个人隐私文件
 个人笔记.md
 
-# 排除 Obsidian 工作区文件（可选）
+# Obsidian 工作区配置（不同设备不同，应忽略）
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+.obsidian/workspace.json.bak
 
-# 排除插件配置（如果不想同步插件设置）
+# Obsidian 插件配置（如果你不希望同步插件设置和缓存）
 .obsidian/plugins/
+.obsidian/themes/   # 如果主题不想同步
+.copilot/           # Copilot 对话历史
+.smart-connections/ # 插件缓存
+
+# 你不想同步的笔记文件夹（根目录下）
 /杂项/
 /Excalidraw/
 /数据库/
