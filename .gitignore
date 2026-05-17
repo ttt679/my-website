@@ -1,0 +1,15 @@
+# 排除私人文件夹
+数据库/
+学习笔记/
+杂项/
+Excalidraw/
+
+# 排除特定文件
+个人笔记.md
+
+# 排除 Obsidian 工作区文件（可选）
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# 排除插件配置（如果不想同步插件设置）
+.obsidian/plugins/

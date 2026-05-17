@@ -11,15 +11,14 @@
             "id": "393261fb621d754e",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/workspace.json",
-                "bFile": ".obsidian/workspace.json",
-                "aRef": "HEAD",
-                "bRef": ""
+                "file": "杂项/GAIO架构师个人基础设施落地指南 v1.0.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: workspace.json  (Index)"
+              "icon": "lucide-file",
+              "title": "GAIO架构师个人基础设施落地指南 v1.0"
             }
           }
         ]
@@ -212,22 +211,25 @@
   },
   "active": "393261fb621d754e",
   "lastOpenFiles": [
-    "AI智能体-Token二分法与中间层过路费模式.md",
-    "GAIO架构师个人基础设施落地指南 v1.0.md",
-    "智能体架构与产品形式构思.md",
-    "项目稳定性与可扩展性评估报告.md",
-    "未命名.md",
-    "梳理智能体项目层级架构.md",
-    "什么是机器学习.md",
-    "未命名.canvas",
-    "个人智能体完整工作流程与架构.md",
     "Inbox/meeting_minutes_20260515_140618.md",
+    "杂项/GAIO架构师个人基础设施落地指南 v1.0.md",
+    "杂项/运动服装面料筛选方法论.md",
+    "杂项/个人简历.md",
+    "杂项/个人智能体完整工作流程与架构.md",
+    "新建 文本文档.txt",
+    "杂项/AI智能体-Token二分法与中间层过路费模式.md",
+    "杂项/智能体架构与产品形式构思.md",
+    "杂项/项目稳定性与可扩展性评估报告.md",
+    "杂项/未命名.md",
+    "杂项/梳理智能体项目层级架构.md",
+    "学习笔记/什么是机器学习.md",
+    "未命名.canvas",
     "Excalidraw/Drawing 2026-04-30 19.47.18.excalidraw.md",
     "学习笔记/AI智能体中间层产品化策略研讨会_20260515_142826.md",
     "学习笔记/AI行业MCP与CLI争议下的个人用户需求分析_2026-04-28.md",
     "学习笔记/普通人用AI在金融领域降维打击的思路_2026-04-29.md",
     "Inbox",
-    "内容创作风格优化：从“我的故事”到“你的镜子”.md",
+    "杂项/内容创作风格优化：从“我的故事”到“你的镜子”.md",
     "学习笔记/公猫配种与绝育决策指南.md",
     "量子计算基础讨论纪要.md",
     "量子计算基础知识探讨.md",
@@ -238,16 +240,14 @@
     "学习笔记/AI时代学习路径的转变与对话沉淀工具开发_2026-04-21.md",
     "学习笔记/血糖监测与健康咨询要点整理_2026-04-21.md",
     "学习笔记/人机协作边界探索：AI视频剪辑中的精准分工实践_2026-04-23.md",
-    "学习笔记/个人定制化AI工具的范式总结_2026-04-27.md",
     "杂项",
     "Excalidraw",
-    "个人数据库",
+    "数据库/个人数据库",
     "视频字幕文件/video_chapters_20260426_011157.srt",
     "视频字幕文件",
     "copilot-conversations",
     "copilot/copilot-custom-prompts",
     "copilot",
-    "学习笔记",
     "未命名 1.canvas"
   ]
 }
