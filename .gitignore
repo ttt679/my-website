@@ -13,3 +13,7 @@ Excalidraw/
 
 # 排除插件配置（如果不想同步插件设置）
 .obsidian/plugins/
+/杂项/
+/Excalidraw/
+/数据库/
+/学习笔记/
