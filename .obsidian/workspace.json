@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "杂项/GAIO架构师个人基础设施落地指南 v1.0.md",
+                "file": "website.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GAIO架构师个人基础设施落地指南 v1.0"
+              "title": "website"
             }
           }
         ]
@@ -211,8 +211,9 @@
   },
   "active": "393261fb621d754e",
   "lastOpenFiles": [
-    "Inbox/meeting_minutes_20260515_140618.md",
+    "website.md",
     "杂项/GAIO架构师个人基础设施落地指南 v1.0.md",
+    "Inbox/meeting_minutes_20260515_140618.md",
     "杂项/运动服装面料筛选方法论.md",
     "杂项/个人简历.md",
     "杂项/个人智能体完整工作流程与架构.md",
@@ -239,7 +240,6 @@
     "学习笔记/AI协作内容创作方法论与方向指南_2026-04-27.md",
     "学习笔记/AI时代学习路径的转变与对话沉淀工具开发_2026-04-21.md",
     "学习笔记/血糖监测与健康咨询要点整理_2026-04-21.md",
-    "学习笔记/人机协作边界探索：AI视频剪辑中的精准分工实践_2026-04-23.md",
     "杂项",
     "Excalidraw",
     "数据库/个人数据库",
