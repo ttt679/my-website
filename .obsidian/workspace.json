@@ -11,14 +11,14 @@
             "id": "393261fb621d754e",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/app.json",
-                "bFile": ".obsidian/app.json",
-                "aRef": ""
+                "file": "梳理智能体项目层级架构.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: app.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "梳理智能体项目层级架构"
             }
           }
         ]
@@ -209,7 +209,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "393261fb621d754e",
+  "active": "4c53e0b0d81e6296",
   "lastOpenFiles": [
     "未命名.md",
     "项目稳定性与可扩展性评估报告.md",
