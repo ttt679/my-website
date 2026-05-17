@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "62381da0503ca4d4",
+        "id": "b137b3259787758f",
         "type": "tabs",
         "children": [
           {
-            "id": "41a488763ddfb2a9",
+            "id": "393261fb621d754e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "个人智能体完整工作流程与架构.md",
-                "mode": "source",
-                "source": false
+                "aFile": ".obsidian/app.json",
+                "bFile": ".obsidian/app.json",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "个人智能体完整工作流程与架构"
+              "icon": "diff",
+              "title": "Diff: app.json  (Working Tree)"
             }
           }
         ]
@@ -209,19 +209,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4c53e0b0d81e6296",
+  "active": "393261fb621d754e",
   "lastOpenFiles": [
+    "未命名.md",
+    "项目稳定性与可扩展性评估报告.md",
+    "未命名.canvas",
     "个人智能体完整工作流程与架构.md",
     "GAIO架构师个人基础设施落地指南 v1.0.md",
     "AI智能体-Token二分法与中间层过路费模式.md",
     "智能体架构与产品形式构思.md",
-    "未命名.md",
     "Inbox/meeting_minutes_20260515_140618.md",
     "Excalidraw/Drawing 2026-04-30 19.47.18.excalidraw.md",
     "学习笔记/AI智能体中间层产品化策略研讨会_20260515_142826.md",
     "学习笔记/AI行业MCP与CLI争议下的个人用户需求分析_2026-04-28.md",
     "学习笔记/普通人用AI在金融领域降维打击的思路_2026-04-29.md",
-    "项目稳定性与可扩展性评估报告.md",
     "梳理智能体项目层级架构.md",
     "Inbox",
     "内容创作风格优化：从“我的故事”到“你的镜子”.md",
@@ -237,8 +238,6 @@
     "学习笔记/血糖监测与健康咨询要点整理_2026-04-21.md",
     "学习笔记/人机协作边界探索：AI视频剪辑中的精准分工实践_2026-04-23.md",
     "学习笔记/个人定制化AI工具的范式总结_2026-04-27.md",
-    "个人数据库/人与AI协作：我的三条思考框架.md",
-    "未命名.canvas",
     "杂项",
     "Excalidraw",
     "个人数据库",
