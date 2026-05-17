@@ -1,0 +1,5 @@
+title: "GAIO架构师 - [你的名字]"
+description: "AI原生服务架构师，让服务被AI理解并调用"
+baseurl: "" # 留空，如果是用户/组织站点则空
+url: "" # 先留空，稍后填你的域名
+markdown: kramdown

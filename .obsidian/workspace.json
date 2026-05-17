@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "website.md",
+                "file": "my-website/website.md",
                 "mode": "source",
                 "source": false
               },
@@ -209,9 +209,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "222c2f4a67204bfc",
+  "active": "4c53e0b0d81e6296",
   "lastOpenFiles": [
-    "website.md",
+    "my-website/index.md",
+    "my-website",
+    "my-website/README.md",
+    "my-website/_config.yml",
+    "my-website/website.md",
     "杂项/个人简历.md",
     "杂项/GAIO架构师个人基础设施落地指南 v1.0.md",
     "Inbox/meeting_minutes_20260515_140618.md",
@@ -237,17 +241,12 @@
     "量子计算与量子纠缠核心概念.md",
     "学习笔记/MCP Host 搭建与配置完全指南_2026-04-22.md",
     "test_update.md",
-    "学习笔记/AI协作内容创作方法论与方向指南_2026-04-27.md",
-    "学习笔记/AI时代学习路径的转变与对话沉淀工具开发_2026-04-21.md",
-    "学习笔记/血糖监测与健康咨询要点整理_2026-04-21.md",
     "杂项",
     "Excalidraw",
     "数据库/个人数据库",
     "视频字幕文件/video_chapters_20260426_011157.srt",
     "视频字幕文件",
     "copilot-conversations",
-    "copilot/copilot-custom-prompts",
-    "copilot",
     "未命名 1.canvas"
   ]
 }
