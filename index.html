@@ -2,24 +2,186 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAIO架构师 - 张三</title>
+    
+    <!-- AI爬取优化：Schema.org 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "张三",
+      "jobTitle": "AI原生服务架构师",
+      "description": "帮助专家构建AI能理解并直接调用的数字接口",
+      "url": "https://你的域名.com"
+    }
+    </script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        nav {
+            margin: 30px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0066cc;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .services {
+            margin: 30px 0;
+        }
+        
+        .services ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .services li {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .services li strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #0066cc;
+        }
+        
+        .file-list {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .file-list h2 {
+            margin-top: 0;
+        }
+        
+        .file-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .file-list li {
+            margin: 10px 0;
+        }
+        
+        .file-list a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .file-list a:hover {
+            text-decoration: underline;
+        }
+        
+        section {
+            margin: 40px 0;
+        }
+        
+        hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <h1>⚙️ GAIO架构师 · 张三</h1>
-    <p>我让服务被AI理解，而不仅是被搜索到。我的服务</p>
-    <ul>
-        <li><strong>AI可见度诊断</strong> —— 让你知道AI如何看你</li>
-        <li><strong>AI原生接口部署</strong> —— 让AI能直接调用你的服务</li>
-        <li><strong>年度架构顾问</strong> —— 长期陪跑你的AI存在</li>
-    </ul>
+    <header>
+        <h1>⚙️ GAIO架构师 · 张三</h1>
+        <p><strong>我让服务被AI理解，而不仅是被搜索到。</strong></p>
+    </header>
 
     <nav>
-        <a href="/">首页</a> |
-        <a href="/about.md">关于我</a> |
-        <a href="/services.md">我的服务</a>
+        <a href="#home">首页</a> |
+        <a href="#about">关于我</a> |
+        <a href="#services">我的服务</a> |
+        <a href="#documents">文档中心</a>
     </nav>
 
+    <main>
+        <section id="home">
+            <h2>欢迎来到我的数字工作室</h2>
+            <p>📮 专注于构建AI原生的服务架构，让您的业务在AI时代获得更好的可见性和可操作性。</p>
+        </section>
+
+        <section id="services" class="services">
+            <h2>我的服务</h2>
+            <ul>
+                <li>
+                    <strong>AI可见度诊断</strong>
+                    让你知道AI如何看你 —— 全面分析您的服务在AI眼中的呈现方式，找出优化空间。
+                </li>
+                <li>
+                    <strong>AI原生接口部署</strong>
+                    让AI能直接调用你的服务 —— 设计和实现符合AI理解模式的API接口和服务架构。
+                </li>
+                <li>
+                    <strong>年度架构顾问</strong>
+                    长期陪跑你的AI存在 —— 提供持续的技术咨询和架构优化建议，确保您的服务始终保持AI友好。
+                </li>
+            </ul>
+        </section>
+
+        <section id="about">
+            <h2>关于我</h2>
+            <div id="about-content">
+                <p>加载中...</p>
+                <p><em>提示：您可以点击下方的"关于我.md"链接查看完整内容</em></p>
+            </div>
+        </section>
+
+        <section id="documents" class="file-list">
+            <h2>📚 文档中心</h2>
+            <p>以下是可用的文档资源，点击即可查看：</p>
+            <ul>
+                <li>📄 <a href="关于我.md" target="_blank">关于我.md</a> - 个人介绍和背景</li>
+                <li>📄 <a href="SSH使用指南.md" target="_blank">SSH使用指南.md</a> - SSH相关技术文档</li>
+                <li>📄 <a href="my-website/README.md" target="_blank">my-website/README.md</a> - 网站说明文档</li>
+                <li>📄 <a href="my-website/website.md" target="_blank">my-website/website.md</a> - 网站相关内容</li>
+            </ul>
+        </section>
+    </main>
+
     <hr>
-    <p>📮 欢迎来到我的数字工作室。</p>
+    
+    <footer>
+        <p>© 2026 张三 · GAIO架构师 | 让服务被AI理解</p>
+        <p>
+            <a href="#home">返回顶部</a>
+        </p>
+    </footer>
 </body>
 </html>
