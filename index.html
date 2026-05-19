@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAIO架构师 - 张三</title>
-    
-    <!-- AI爬取优化：Schema.org 结构化数据 -->
+    <title>GAIO架构师 · 张三</title>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -16,105 +14,242 @@
       "url": "https://你的域名.com"
     }
     </script>
-    
     <style>
+        :root {
+            --blue: #0066cc;
+            --blue-light: #e8f4fd;
+            --gray-bg: #f8f9fa;
+            --gray-border: #e0e0e0;
+            --text: #333;
+            --text-muted: #666;
+        }
+
+        * { box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.7;
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
-            color: #333;
+            color: var(--text);
+            scroll-behavior: smooth;
         }
-        
+
+        /* ── Header ── */
         h1 {
             border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
+            margin-bottom: 8px;
         }
-        
+        header p { color: var(--text-muted); }
+
+        /* ── Navigation ── */
         nav {
-            margin: 30px 0;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 28px 0;
+            padding: 6px;
+            background: var(--gray-bg);
+            border-radius: 8px;
         }
-        
         nav a {
-            margin-right: 15px;
+            padding: 8px 18px;
+            border-radius: 6px;
             text-decoration: none;
-            color: #0066cc;
+            color: var(--text);
+            font-weight: 500;
+            transition: background .15s, color .15s;
         }
-        
-        nav a:hover {
-            text-decoration: underline;
-        }
-        
-        .services {
-            margin: 30px 0;
-        }
-        
+        nav a:hover  { background: #e0e0e0; }
+        nav a.active { background: var(--blue); color: #fff; }
+
+        /* ── Sections ── */
+        section { margin: 40px 0; }
+
+        /* ── Service cards ── */
         .services ul {
             list-style: none;
             padding-left: 0;
+            display: grid;
+            gap: 12px;
         }
-        
         .services li {
-            margin: 15px 0;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #0066cc;
+            padding: 16px 18px;
+            background: var(--gray-bg);
+            border-left: 4px solid var(--blue);
+            border-radius: 0 6px 6px 0;
         }
-        
         .services li strong {
             display: block;
-            margin-bottom: 5px;
-            color: #0066cc;
+            margin-bottom: 4px;
+            color: var(--blue);
         }
-        
+
+        /* ── Document center ── */
         .file-list {
             margin: 30px 0;
             padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
+            background: var(--gray-bg);
+            border-radius: 8px;
         }
-        
-        .file-list h2 {
-            margin-top: 0;
-        }
-        
+        .file-list h2 { margin-top: 0; }
         .file-list ul {
             list-style: none;
             padding-left: 0;
+            display: grid;
+            gap: 8px;
         }
-        
-        .file-list li {
-            margin: 10px 0;
-        }
-        
-        .file-list a {
-            color: #0066cc;
+        .file-list li { margin: 0; }
+        .file-list a, .file-list button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--gray-border);
+            background: #fff;
+            color: var(--blue);
+            font-size: 15px;
+            cursor: pointer;
             text-decoration: none;
+            transition: background .15s, border-color .15s;
         }
-        
-        .file-list a:hover {
-            text-decoration: underline;
+        .file-list a:hover, .file-list button:hover {
+            background: var(--blue-light);
+            border-color: var(--blue);
         }
-        
-        section {
-            margin: 40px 0;
+
+        /* ── Document viewer ── */
+        #doc-viewer {
+            display: none;
+            margin-top: 20px;
+            padding: 24px 28px;
+            background: #fff;
+            border: 1px solid var(--gray-border);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.06);
         }
-        
-        hr {
-            margin: 40px 0;
+        #doc-viewer.open { display: block; }
+        #doc-viewer .doc-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        #doc-viewer .doc-title { font-weight: 600; font-size: 17px; }
+        #doc-viewer .doc-close {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        #doc-viewer .doc-close:hover { background: #f0f0f0; }
+
+        /* ── Markdown rendered styles ── */
+        .md-body h1 { font-size: 1.6em; border-bottom: 2px solid #eee; padding-bottom: 6px; }
+        .md-body h2 { font-size: 1.35em; margin-top: 28px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+        .md-body h3 { font-size: 1.15em; margin-top: 22px; }
+        .md-body p  { margin: 12px 0; }
+        .md-body ul, .md-body ol { padding-left: 24px; margin: 10px 0; }
+        .md-body li { margin: 4px 0; }
+        .md-body code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: .9em;
+        }
+        .md-body pre {
+            background: #2d2d2d;
+            color: #e0e0e0;
+            padding: 14px 18px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: .88em;
+            line-height: 1.5;
+        }
+        .md-body pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .md-body blockquote {
+            border-left: 4px solid var(--blue);
+            margin: 12px 0;
+            padding: 6px 16px;
+            background: var(--blue-light);
+            border-radius: 0 4px 4px 0;
+        }
+        .md-body hr {
+            margin: 24px 0;
             border: none;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #ddd;
         }
-        
+        .md-body table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 12px 0;
+        }
+        .md-body th, .md-body td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .md-body th { background: var(--gray-bg); }
+        .md-body a { color: var(--blue); }
+
+        /* ── Loading spinner ── */
+        .spinner {
+            display: inline-block;
+            width: 20px; height: 20px;
+            border: 2px solid #ccc;
+            border-top-color: var(--blue);
+            border-radius: 50%;
+            animation: spin .6s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Footer ── */
+        hr { margin: 40px 0; border: none; border-top: 1px solid #eee; }
         footer {
             margin-top: 50px;
             padding-top: 20px;
             border-top: 2px solid #eee;
-            color: #666;
+            color: var(--text-muted);
+            font-size: .9em;
+        }
+        footer a { color: var(--blue); }
+
+        /* ── Toast ── */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity .3s;
+            pointer-events: none;
+            z-index: 999;
+        }
+        .toast.show { opacity: 1; }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            body { padding: 20px 14px; }
+            nav { flex-direction: column; }
+            nav a { text-align: center; }
         }
     </style>
 </head>
@@ -124,19 +259,29 @@
         <p><strong>我让服务被AI理解，而不仅是被搜索到。</strong></p>
     </header>
 
-    <nav>
-        <a href="#home">首页</a> |
-        <a href="#about">关于我</a> |
-        <a href="#services">我的服务</a> |
-        <a href="#documents">文档中心</a>
+    <nav id="main-nav">
+        <a href="#home" data-section="home">首页</a>
+        <a href="#about" data-section="about">关于我</a>
+        <a href="#services" data-section="services">我的服务</a>
+        <a href="#documents" data-section="documents">文档中心</a>
     </nav>
 
     <main>
+        <!-- 首页 -->
         <section id="home">
             <h2>欢迎来到我的数字工作室</h2>
             <p>📮 专注于构建AI原生的服务架构，让您的业务在AI时代获得更好的可见性和可操作性。</p>
         </section>
 
+        <!-- 关于我（动态加载） -->
+        <section id="about">
+            <h2>关于我</h2>
+            <div id="about-content">
+                <p><span class="spinner"></span> 加载中…</p>
+            </div>
+        </section>
+
+        <!-- 我的服务 -->
         <section id="services" class="services">
             <h2>我的服务</h2>
             <ul>
@@ -155,33 +300,296 @@
             </ul>
         </section>
 
-        <section id="about">
-            <h2>关于我</h2>
-            <div id="about-content">
-                <p>加载中...</p>
-                <p><em>提示：您可以点击下方的"关于我.md"链接查看完整内容</em></p>
-            </div>
-        </section>
-
+        <!-- 文档中心 -->
         <section id="documents" class="file-list">
             <h2>📚 文档中心</h2>
-            <p>以下是可用的文档资源，点击即可查看：</p>
-            <ul>
-                <li>📄 <a href="关于我.md" target="_blank">关于我.md</a> - 个人介绍和背景</li>
-                <li>📄 <a href="SSH使用指南.md" target="_blank">SSH使用指南.md</a> - SSH相关技术文档</li>
-                <li>📄 <a href="my-website/README.md" target="_blank">my-website/README.md</a> - 网站说明文档</li>
-                <li>📄 <a href="my-website/website.md" target="_blank">my-website/website.md</a> - 网站相关内容</li>
+            <p>点击下方文档即可在当前页面浏览：</p>
+            <ul id="doc-list">
+                <li><button data-md="关于我.md">📄 关于我 — 个人介绍和背景</button></li>
+                <li><button data-md="SSH使用指南.md">📄 SSH使用指南 — SSH相关技术文档</button></li>
+                <li><button data-md="my-website/README.md">📄 README — 网站说明文档</button></li>
+                <li><button data-md="my-website/website.md">📄 website — 网站相关内容</button></li>
             </ul>
+            <!-- 文档查看器 -->
+            <div id="doc-viewer">
+                <div class="doc-toolbar">
+                    <span class="doc-title"></span>
+                    <button class="doc-close" onclick="closeViewer()">✕ 关闭</button>
+                </div>
+                <div class="md-body" id="doc-viewer-body"></div>
+            </div>
         </section>
     </main>
 
     <hr>
-    
     <footer>
         <p>© 2026 张三 · GAIO架构师 | 让服务被AI理解</p>
-        <p>
-            <a href="#home">返回顶部</a>
-        </p>
+        <p><a href="#home">返回顶部</a></p>
     </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+    /* ═══════════════════════════════════════════
+       GAIO-website 交互引擎
+       ═══════════════════════════════════════════ */
+
+    /* ── Markdown → HTML 渲染器（纯 JS，无依赖）── */
+    function renderMarkdown(md) {
+        const lines = md.split('\n');
+        let html = '';
+        let inCodeBlock = false;
+        let codeBuf = '';
+        let codeLang = '';
+        let inList = null;   // 'ul' | 'ol'
+        let inTable = false;
+        let tableHtml = '';
+
+        function flushList() {
+            if (inList) { html += '</' + inList + '>'; inList = null; }
+        }
+        function flushParagraph(buf) {
+            if (buf.trim()) { html += '<p>' + processInline(buf.trim()) + '</p>'; }
+        }
+        function closeCodeBlock() {
+            let cls = codeLang ? ' class="language-' + escapeHtml(codeLang) + '"' : '';
+            html += '<pre><code' + cls + '>' + escapeHtml(codeBuf.replace(/\n$/, '')) + '</code></pre>';
+            codeBuf = '';
+            codeLang = '';
+            inCodeBlock = false;
+        }
+
+        let paraBuf = '';
+
+        for (let i = 0; i < lines.length; i++) {
+            const raw = lines[i];
+            const line = raw.trim();
+
+            // Code block toggle
+            if (line.startsWith('```')) {
+                if (!inCodeBlock) {
+                    flushList();
+                    flushParagraph(paraBuf); paraBuf = '';
+                    inCodeBlock = true;
+                    codeLang = line.slice(3).trim();
+                    continue;
+                } else {
+                    closeCodeBlock();
+                    continue;
+                }
+            }
+            if (inCodeBlock) {
+                codeBuf += raw + '\n';
+                continue;
+            }
+
+            // Table
+            if (line.startsWith('|') && line.endsWith('|')) {
+                flushList();
+                flushParagraph(paraBuf); paraBuf = '';
+                if (!inTable) {
+                    inTable = true;
+                    tableHtml = '<table>';
+                }
+                const cells = line.slice(1, -1).split('|').map(c => c.trim());
+                // Skip separator rows like |---|---|
+                if (cells.every(c => /^[-:]+$/.test(c))) continue;
+                const tag = inTable && tableHtml.indexOf('</thead>') === -1 && tableHtml.indexOf('<tbody>') === -1
+                    ? (() => { tableHtml += '<thead>'; return 'th'; })()
+                    : (tableHtml.indexOf('<tbody>') === -1 && tableHtml.indexOf('</thead>') !== -1
+                        ? (() => { tableHtml += '<tbody>'; return 'td'; })()
+                        : (tableHtml.indexOf('<tbody>') === -1 ? (() => { tableHtml += '<thead>'; return 'th'; })() : 'td'));
+                tableHtml += '<tr>' + cells.map(c => '<' + tag + '>' + processInline(c) + '</' + tag + '>').join('') + '</tr>';
+                continue;
+            } else if (inTable) {
+                if (tableHtml.indexOf('</thead>') !== -1 && tableHtml.indexOf('</tbody>') === -1) tableHtml += '</tbody>';
+                tableHtml += '</table>';
+                html += tableHtml;
+                tableHtml = '';
+                inTable = false;
+            }
+
+            // Empty line
+            if (line === '') {
+                flushList();
+                flushParagraph(paraBuf); paraBuf = '';
+                continue;
+            }
+
+            // Headings
+            let headingMatch = line.match(/^(#{1,6})\s+(.*)/);
+            if (headingMatch) {
+                flushList();
+                flushParagraph(paraBuf); paraBuf = '';
+                const level = headingMatch[1].length;
+                html += '<h' + level + '>' + processInline(headingMatch[2]) + '</h' + level + '>';
+                continue;
+            }
+
+            // Horizontal rule
+            if (/^(-{3,}|\*{3,})$/.test(line)) {
+                flushList();
+                flushParagraph(paraBuf); paraBuf = '';
+                html += '<hr>';
+                continue;
+            }
+
+            // Blockquote
+            if (line.startsWith('>')) {
+                flushList();
+                flushParagraph(paraBuf); paraBuf = '';
+                const content = line.replace(/^>\s?/, '');
+                html += '<blockquote><p>' + processInline(content) + '</p></blockquote>';
+                continue;
+            }
+
+            // Unordered list
+            let ulMatch = line.match(/^[-*+]\s+(.*)/);
+            if (ulMatch) {
+                flushParagraph(paraBuf); paraBuf = '';
+                if (inList !== 'ul') { flushList(); html += '<ul>'; inList = 'ul'; }
+                html += '<li>' + processInline(ulMatch[1]) + '</li>';
+                continue;
+            }
+
+            // Ordered list
+            let olMatch = line.match(/^(\d+)\.\s+(.*)/);
+            if (olMatch) {
+                flushParagraph(paraBuf); paraBuf = '';
+                if (inList !== 'ol') { flushList(); html += '<ol>'; inList = 'ol'; }
+                html += '<li>' + processInline(olMatch[2]) + '</li>';
+                continue;
+            }
+
+            // Paragraph
+            flushList();
+            paraBuf += (paraBuf ? ' ' : '') + raw.trim();
+        }
+
+        // Close any open constructs
+        flushList();
+        flushParagraph(paraBuf);
+        if (inTable) {
+            if (tableHtml.indexOf('</thead>') !== -1 && tableHtml.indexOf('</tbody>') === -1) tableHtml += '</tbody>';
+            tableHtml += '</table>';
+            html += tableHtml;
+        }
+        if (inCodeBlock) closeCodeBlock();
+
+        return html;
+    }
+
+    /* Inline formatting */
+    function processInline(text) {
+        let t = escapeHtml(text);
+        // Bold + italic (triple)
+        t = t.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+        // Bold
+        t = t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        // Italic
+        t = t.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        // Inline code
+        t = t.replace(/`([^`]+)`/g, '<code>$1</code>');
+        // Images
+        t = t.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
+        // Links
+        t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+        return t;
+    }
+
+    function escapeHtml(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    /* ── Fetch + render ── */
+    async function loadMarkdown(path, targetEl) {
+        try {
+            const resp = await fetch(path);
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+            const md = await resp.text();
+            const html = renderMarkdown(md);
+            targetEl.innerHTML = html;
+        } catch (err) {
+            targetEl.innerHTML = '<p style="color:#c00;">⚠️ 加载失败：' + escapeHtml(err.message) + '</p>';
+        }
+    }
+
+    /* ── 自动加载「关于我」── */
+    (function autoLoadAbout() {
+        const el = document.getElementById('about-content');
+        if (el) loadMarkdown('关于我.md', el);
+    })();
+
+    /* ── 文档查看器 ── */
+    const viewer = document.getElementById('doc-viewer');
+    const viewerBody = document.getElementById('doc-viewer-body');
+    const viewerTitle = viewer.querySelector('.doc-title');
+
+    async function openDoc(path, label) {
+        viewer.classList.add('open');
+        viewerTitle.textContent = label;
+        viewerBody.innerHTML = '<p><span class="spinner"></span> 加载中…</p>';
+        await loadMarkdown(path, viewerBody);
+        // Scroll viewer into view
+        viewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function closeViewer() {
+        viewer.classList.remove('open');
+    }
+
+    // Bind doc buttons
+    document.getElementById('doc-list').addEventListener('click', function(e) {
+        const btn = e.target.closest('button[data-md]');
+        if (!btn) return;
+        const path = btn.getAttribute('data-md');
+        const label = btn.textContent.replace(/^[📄🔧📝📋]\s*/, '');
+        openDoc(path, label);
+    });
+
+    /* ── Navigation ── */
+    const nav = document.getElementById('main-nav');
+    const navLinks = nav.querySelectorAll('a');
+
+    nav.addEventListener('click', function(e) {
+        const link = e.target.closest('a[data-section]');
+        if (!link) return;
+        e.preventDefault();
+        const sectionId = link.getAttribute('data-section');
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Reload about content when navigating to it
+        if (sectionId === 'about') {
+            const el = document.getElementById('about-content');
+            if (el) loadMarkdown('关于我.md', el);
+        }
+    });
+
+    // Active state via IntersectionObserver
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                navLinks.forEach(function(a) {
+                    a.classList.toggle('active', a.getAttribute('data-section') === entry.target.id);
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    sections.forEach(function(s) { observer.observe(s); });
+
+    /* ── Toast ── */
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        clearTimeout(t._tid);
+        t._tid = setTimeout(function() { t.classList.remove('show'); }, 2000);
+    }
+    </script>
 </body>
 </html>
