@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的服务 - GAIO架构师 · 唐敏娜</title>
+    <meta name="description" content="GAIO架构师提供的三项核心服务：AI可见度诊断、AI原生接口部署、年度架构顾问">
+    <style>
+        :root {
+            --blue: #0066cc;
+            --blue-light: #e8f4fd;
+            --gray-bg: #f8f9fa;
+            --gray-border: #e0e0e0;
+            --text: #333;
+            --text-muted: #666;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: var(--text);
+        }
+
+        nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 28px 0;
+            padding: 6px;
+            background: var(--gray-bg);
+            border-radius: 8px;
+        }
+        nav a {
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: background .15s, color .15s;
+        }
+        nav a:hover  { background: #e0e0e0; }
+        nav a.active { background: var(--blue); color: #fff; }
+
+        .content {
+            background: #fff;
+            padding: 20px 0;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--blue);
+            border-left: 4px solid var(--blue);
+            padding-left: 12px;
+        }
+
+        h3 {
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--blue);
+        }
+
+        .service-card {
+            background: var(--gray-bg);
+            border-left: 4px solid var(--blue);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--blue);
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--blue);
+            margin: 10px 0;
+        }
+
+        code {
+            background: var(--gray-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: var(--gray-bg);
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--gray-border);
+            margin: 32px 0;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--blue);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 14px; }
+            nav { flex-direction: column; }
+            nav a { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>我的服务</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我</a>
+        <a href="services.html" class="active">我的服务</a>
+        <a href="cases.html">案例</a>
+        <a href="articles/">文章</a>
+        <a href="index.html#contact">联系我</a>
+    </nav>
+
+    <main class="content">
+        <p>我提供三项核心服务，帮助你的业务在AI时代获得更好的可见性和可操作性。</p>
+
+        <div class="service-card">
+            <h3>🔍 AI可见度诊断</h3>
+            <p class="price">价格：¥2,999 / 次 | 交付周期：5-7个工作日</p>
+            <p><strong>服务内容：</strong></p>
+            <ul>
+                <li><strong>AI认知审计</strong> - 测试5+主流AI助手对您服务的理解和描述</li>
+                <li><strong>结构化数据检查</strong> - 检查网站是否包含有效的Schema.org标记</li>
+                <li><strong>内容可提取性分析</strong> - 评估您的核心信息是否容易被AI提取</li>
+                <li><strong>竞品对比报告</strong> - 对比您与3个主要竞品在AI眼中的差异</li>
+            </ul>
+            <p><strong>交付物：</strong></p>
+            <ul>
+                <li>📄 详细诊断报告（PDF格式，20-30页）</li>
+                <li>📊 AI认知评分卡（量化各项指标）</li>
+                <li>💡 优化建议清单（按优先级排序）</li>
+                <li>🎥 30分钟解读会议（线上会议，解答疑问）</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>⚙️ AI原生接口部署</h3>
+            <p class="price">价格：¥9,999 起 / 项目 | 交付周期：2-4周</p>
+            <p><strong>服务内容：</strong></p>
+            <ul>
+                <li><strong>API设计与优化</strong> - 设计符合AI调用模式的RESTful或GraphQL接口</li>
+                <li><strong>工具定义（Tool Definition）</strong> - 为您的服务创建AI助手可识别的工具描述</li>
+                <li><strong>认证与安全</strong> - 实现API密钥管理或OAuth认证</li>
+                <li><strong>测试与验证</strong> - 在主流AI平台上测试工具调用</li>
+                <li><strong>监控与分析</strong> - 部署API使用监控系统</li>
+            </ul>
+            <p><strong>技术栈：</strong></p>
+            <ul>
+                <li><strong>后端：</strong>Node.js / Python / Go（根据需求选择）</li>
+                <li><strong>接口规范：</strong>OpenAPI 3.0、JSON Schema</li>
+                <li><strong>部署：</strong>Docker + Kubernetes 或 Serverless</li>
+                <li><strong>监控：</strong>Prometheus + Grafana 或云服务商监控工具</li>
+            </ul>
+            <p><strong>交付物：</strong></p>
+            <ul>
+                <li>🚀 可运行的API服务</li>
+                <li> 完整的API文档（在线文档 + PDF）</li>
+                <li> 测试用例和验证报告</li>
+                <li>📋 集成指南</li>
+                <li>🎓 1小时技术培训</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>🤝 年度架构顾问</h3>
+            <p class="price">价格：¥29,999 / 年 | 合作周期：12个月</p>
+            <p><strong>服务内容：</strong></p>
+            <ul>
+                <li><strong>季度战略咨询（4次/年）</strong> - 每次2小时的深度咨询会议</li>
+                <li><strong>月度技术审查（12次/年）</strong> - 每月1小时的技术review会议</li>
+                <li><strong>紧急支持</strong> - 优先响应（24小时内回复）</li>
+                <li><strong>行业洞察分享</strong> - 每月发送GAIO行业动态简报</li>
+                <li><strong>网络资源对接</strong> - 引荐其他GAIO从业者</li>
+            </ul>
+            <p><strong>额外权益：</strong></p>
+            <ul>
+                <li>✅ 免费参与所有公开工作坊和培训</li>
+                <li>✅ 优先体验新开发的工具和框架</li>
+                <li>✅ 年度总结报告</li>
+                <li>✅ 品牌背书（可在官网展示"GAIO认证合作伙伴"标识）</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>服务流程</h2>
+        <ol>
+            <li><strong>初步沟通（免费）</strong> - 30分钟线上会议，了解您的需求</li>
+            <li><strong>提案与签约</strong> - 提供详细的项目提案和报价，支付预付款（50%）</li>
+            <li><strong>执行与协作</strong> - 启动项目，建立沟通渠道，定期同步进度</li>
+            <li><strong>交付与验收</strong> - 提交所有交付物，进行验收演示和培训</li>
+            <li><strong>尾款与后续</strong> - 验收合格后支付尾款（50%），提供30天免费技术支持</li>
+        </ol>
+
+        <hr>
+
+        <h2>常见问题</h2>
+        
+        <h3>Q: 这些服务适合小企业或个人开发者吗？</h3>
+        <p>A: 完全适合！事实上，小团队往往能从GAIO中获得更大的竞争优势，因为大公司的品牌效应较弱，而优质的技术服务更容易被AI发现和推荐。</p>
+
+        <h3>Q: 我需要懂技术才能配合你工作吗？</h3>
+        <p>A: 不需要。我会用通俗易懂的语言解释技术概念，并提供详细的操作指南。如果您的团队有技术人员，他们会更容易上手，但这不是必须的。</p>
+
+        <h3>Q: 优化后多久能看到效果？</h3>
+        <p>A: AI可见度的改善通常需要2-4周开始显现，但这是一个持续的过程。某些改进（如结构化数据添加）可能在一周内就能看到变化，而建立AI的信任则需要更长时间。</p>
+
+        <h3>Q: 如果我对结果不满意怎么办？</h3>
+        <p>A: 我在每个阶段都会与您确认方向和进展，确保最终结果符合预期。如果在诊断阶段发现您的服务已经非常优化，我会如实告知并调整方案。我的目标是帮您创造价值，而不是完成交易。</p>
+
+        <hr>
+
+        <h2>下一步</h2>
+        <p>准备好开始了吗？<a href="index.html#contact">联系我</a>安排一次免费的初步咨询，让我们一起探讨如何提升您的AI可见性。</p>
+        <p><strong>联系方式：</strong></p>
+        <ul>
+            <li>📧 邮箱：<a href="mailto:1523449073@qq.com">1523449073@qq.com</a></li>
+            <li>🎵 抖音：<a href="https://v.douyin.com/77845617951/" target="_blank">@饭王bot (77845617951)</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>© 2026 唐敏娜 · GAIO架构师 | <a href="index.html">返回首页</a></p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank">黑ICP备2026003695号</a></p>
+    </footer>
+</body>
+</html>

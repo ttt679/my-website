@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - GAIO架构师 · 唐敏娜</title>
+    <meta name="description" content="GAIO架构师的个人介绍、理念和能力边界声明">
+    <style>
+        :root {
+            --blue: #0066cc;
+            --blue-light: #e8f4fd;
+            --gray-bg: #f8f9fa;
+            --gray-border: #e0e0e0;
+            --text: #333;
+            --text-muted: #666;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: var(--text);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 28px 0;
+            padding: 6px;
+            background: var(--gray-bg);
+            border-radius: 8px;
+        }
+        nav a {
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: background .15s, color .15s;
+        }
+        nav a:hover  { background: #e0e0e0; }
+        nav a.active { background: var(--blue); color: #fff; }
+
+        /* Content */
+        .content {
+            background: #fff;
+            padding: 20px 0;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--blue);
+        }
+
+        h3 {
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--blue);
+        }
+
+        blockquote {
+            border-left: 4px solid var(--blue);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        code {
+            background: var(--gray-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: var(--gray-bg);
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--gray-border);
+            margin: 32px 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 20px 14px; }
+            nav { flex-direction: column; }
+            nav a { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>关于我</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="about.html" class="active">关于我</a>
+        <a href="services.html">我的服务</a>
+        <a href="cases.html">案例</a>
+        <a href="articles/">文章</a>
+        <a href="index.html#contact">联系我</a>
+    </nav>
+
+    <main class="content">
+        <h2>我是谁</h2>
+        <p>你好，我是<strong>唐敏娜</strong>，一名专注于 <strong>GAIO（Generative AI Optimization，生成式AI优化）</strong> 的架构师。</p>
+        <p>在AI快速发展的今天，我发现一个关键问题：<strong>大多数服务只是被"搜索到"，而不是被AI"理解和使用"</strong>。这正是我致力于解决的问题。</p>
+
+        <h2>我的理念</h2>
+        <p>我相信，未来的服务不是靠人搜索，而是靠 AI 理解和调用。</p>
+        <p>传统的SEO（搜索引擎优化）关注的是让人类在搜索结果中找到你，而 <strong>GAIO（生成式AI优化）</strong> 关注的是让AI系统能够：</p>
+        <ul>
+            <li><strong>理解</strong> 你的服务内容和价值</li>
+            <li><strong>评估</strong> 你的服务是否适合特定场景</li>
+            <li><strong>调用</strong> 你的服务接口来完成实际任务</li>
+            <li><strong>推荐</strong> 你的服务给需要它的用户</li>
+        </ul>
+        <p>这不是关于排名的游戏，而是关于<strong>可操作性和互操作性</strong>的革命。</p>
+
+        <h2>我能做什么</h2>
+        <h3> 核心专长</h3>
+        <ol>
+            <li><strong>AI可见度分析</strong> - 诊断您的服务在主流AI助手眼中的呈现方式</li>
+            <li><strong>AI原生接口设计</strong> - 构建符合AI理解模式的服务接口</li>
+            <li><strong>结构化数据优化</strong> - 让您的服务信息更容易被AI提取和理解</li>
+            <li><strong>服务发现策略</strong> - 提高您的服务在AI推荐系统中的曝光率</li>
+        </ol>
+
+        <h3>💼 服务对象</h3>
+        <ul>
+            <li><strong>独立开发者</strong> - 让你的工具被AI助手直接推荐和调用</li>
+            <li><strong>专业服务提供者</strong> - 让咨询、培训等服务进入AI的推荐列表</li>
+            <li><strong>SaaS产品团队</strong> - 优化产品的AI集成能力和可见性</li>
+            <li><strong>内容创作者</strong> - 让高质量内容在AI生成时被优先引用</li>
+        </ul>
+
+        <h2>我不做什么</h2>
+        <p>为了保持专业专注，以下服务<strong>不在</strong>我的能力范围内：</p>
+        <ul>
+            <li>❌ <strong>传统SEO优化</strong> - 我不做关键词堆砌、外链建设等传统搜索引擎优化</li>
+            <li>❌ <strong>社交媒体营销</strong> - 不涉及微博、抖音等平台的运营推广</li>
+            <li>❌ <strong>广告投放管理</strong> - 不处理SEM、信息流广告等付费推广</li>
+            <li> <strong>网站美工设计</strong> - 不提供UI/UX设计或前端美化服务</li>
+            <li>❌ <strong>通用软件开发</strong> - 不承接与AI优化无关的软件项目开发</li>
+        </ul>
+        <p><strong>我的边界很清晰</strong>：只专注于让服务更好地被AI理解和调用。如果你的需求不在这个范围内，我会诚实地告诉你，并可能推荐更适合的专业人士。</p>
+
+        <h2>工作风格</h2>
+        <ul>
+            <li>🔍 <strong>深度诊断</strong> - 不只是表面分析，而是深入理解AI如何"看待"你的服务</li>
+            <li>🛠️ <strong>实战导向</strong> - 所有建议都基于实际测试和验证，而非理论推测</li>
+            <li>📊 <strong>数据驱动</strong> - 用具体的指标和案例来证明优化效果</li>
+            <li>🤝 <strong>长期合作</strong> - 更倾向于建立长期的顾问关系，而非一次性项目</li>
+        </ul>
+
+        <h2>联系我</h2>
+        <p>如果你认同这个理念，或者想了解如何让你的服务被AI更好地理解，欢迎<a href="index.html#contact">联系我</a>。</p>
+        <ul>
+            <li>📧 邮箱：<a href="mailto:1523449073@qq.com">1523449073@qq.com</a></li>
+            <li>🎵 抖音：<a href="https://v.douyin.com/77845617951/" target="_blank">@饭王bot (77845617951)</a></li>
+        </ul>
+        <p>让我们一起，让你的服务从"被搜索"进化到"被使用"。</p>
+    </main>
+
+    <footer>
+        <p>© 2026 唐敏娜 · GAIO架构师 | <a href="index.html">返回首页</a></p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank">黑ICP备2026003695号</a></p>
+    </footer>
+</body>
+</html>

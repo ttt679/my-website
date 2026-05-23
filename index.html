@@ -265,10 +265,10 @@
 
     <nav id="main-nav">
         <a href="#home" data-section="home">首页</a>
-        <a href="about.md" target="_blank">关于我</a>
-        <a href="services.md" target="_blank">我的服务</a>
-        <a href="cases.md" target="_blank">案例</a>
-        <a href="articles/" target="_blank">文章</a>
+        <a href="about.html">关于我</a>
+        <a href="services.html">我的服务</a>
+        <a href="cases.html">案例</a>
+        <a href="articles/">文章</a>
         <a href="#contact" data-section="contact">联系我</a>
     </nav>
 
@@ -284,17 +284,17 @@
                     <div style="padding: 20px; background: var(--gray-bg); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;">
                         <strong style="color: var(--blue); display: block; margin-bottom: 8px;">🔍 AI可见度诊断</strong>
                         <p style="margin: 0;">全面分析您的服务在AI眼中的呈现方式，找出优化空间。让AI真正理解你的价值。</p>
-                        <a href="services.md" target="_blank" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
+                        <a href="services.html" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
                     </div>
                     <div style="padding: 20px; background: var(--gray-bg); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;">
-                        <strong style="color: var(--blue); display: block; margin-bottom: 8px;">⚙️ AI原生接口部署</strong>
+                        <strong style="color: var(--blue); display: block; margin-bottom: 8px;">️ AI原生接口部署</strong>
                         <p style="margin: 0;">设计和实现符合AI理解模式的API接口和服务架构，让AI能直接调用你的服务。</p>
-                        <a href="services.md" target="_blank" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
+                        <a href="services.html" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
                     </div>
                     <div style="padding: 20px; background: var(--gray-bg); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;">
                         <strong style="color: var(--blue); display: block; margin-bottom: 8px;">🤝 年度架构顾问</strong>
                         <p style="margin: 0;">长期陪跑你的AI存在，提供持续的技术咨询和架构优化建议。</p>
-                        <a href="services.md" target="_blank" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
+                        <a href="services.html" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
                     </div>
                 </div>
             </div>
@@ -302,7 +302,7 @@
             <div style="margin-top: 40px;">
                 <h3>案例速览</h3>
                 <p>查看我如何帮助客户优化他们的AI可见性：</p>
-                <a href="cases.md" target="_blank" style="display: inline-block; padding: 10px 20px; background: var(--blue); color: #fff; text-decoration: none; border-radius: 6px; margin-top: 10px;">查看更多案例 →</a>
+                <a href="cases.html" style="display: inline-block; padding: 10px 20px; background: var(--blue); color: #fff; text-decoration: none; border-radius: 6px; margin-top: 10px;">查看更多案例 →</a>
             </div>
         </section>
 
@@ -340,26 +340,6 @@
                     <input type="text" id="chat-input" placeholder="输入你的问题,例如:什么是GAIO架构?" />
                     <button onclick="sendMessage()" id="send-btn">发送</button>
                 </div>
-            </div>
-        </section>
-
-        <!-- 文档中心 -->
-        <section id="documents" class="file-list">
-            <h2>📚 文档中心</h2>
-            <p>点击下方文档即可在当前页面浏览：</p>
-            <ul id="doc-list">
-                <li><button data-md="关于我.md">📄 关于我 — 个人介绍和背景</button></li>
-                <li><button data-md="SSH使用指南.md">📄 SSH使用指南 — SSH相关技术文档</button></li>
-                <li><button data-md="my-website/README.md">📄 README — 网站说明文档</button></li>
-                <li><button data-md="my-website/website.md">📄 website — 网站相关内容</button></li>
-            </ul>
-            <!-- 文档查看器 -->
-            <div id="doc-viewer">
-                <div class="doc-toolbar">
-                    <span class="doc-title"></span>
-                    <button class="doc-close" onclick="closeViewer()">✕ 关闭</button>
-                </div>
-                <div class="md-body" id="doc-viewer-body"></div>
             </div>
         </section>
 
