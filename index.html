@@ -136,70 +136,6 @@
             color: var(--blue);
         }
 
-        /* ── Document center ── */
-        .file-list {
-            margin: 30px 0;
-            padding: 20px;
-            background: var(--gray-bg);
-            border-radius: 8px;
-        }
-        .file-list h2 { margin-top: 0; }
-        .file-list ul {
-            list-style: none;
-            padding-left: 0;
-            display: grid;
-            gap: 8px;
-        }
-        .file-list li { margin: 0; }
-        .file-list a, .file-list button {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 10px 14px;
-            border-radius: 6px;
-            border: 1px solid var(--gray-border);
-            background: #fff;
-            color: var(--blue);
-            font-size: 15px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background .15s, border-color .15s;
-        }
-        .file-list a:hover, .file-list button:hover {
-            background: var(--blue-light);
-            border-color: var(--blue);
-        }
-
-        /* ── Document viewer ── */
-        #doc-viewer {
-            display: none;
-            margin-top: 20px;
-            padding: 24px 28px;
-            background: #fff;
-            border: 1px solid var(--gray-border);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,.06);
-        }
-        #doc-viewer.open { display: block; }
-        #doc-viewer .doc-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #eee;
-        }
-        #doc-viewer .doc-title { font-weight: 600; font-size: 17px; }
-        #doc-viewer .doc-close {
-            background: none;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 4px 12px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        #doc-viewer .doc-close:hover { background: #f0f0f0; }
-
         /* ── AI Chat ── */
         #chat-container {
             margin-top: 20px;
@@ -370,14 +306,6 @@
             </div>
         </section>
 
-        <!-- 关于我（动态加载） -->
-        <section id="about">
-            <h2>关于我</h2>
-            <div id="about-content">
-                <p><span class="spinner"></span> 加载中…</p>
-            </div>
-        </section>
-
         <!-- 我的服务 -->
         <section id="services" class="services">
             <h2>我的服务</h2>
@@ -399,7 +327,7 @@
 
         <!-- AI智能助手 -->
         <section id="ai-assistant">
-            <h2>🤖 AI智能助手</h2>
+            <h2> AI智能助手</h2>
             <p>基于DeepSeek大模型,为你提供专业的GAIO架构咨询服务</p>
             
             <div id="chat-container">
@@ -647,42 +575,9 @@
             const html = renderMarkdown(md);
             targetEl.innerHTML = html;
         } catch (err) {
-            targetEl.innerHTML = '<p style="color:#c00;">⚠️ 加载失败：' + escapeHtml(err.message) + '</p>';
+            targetEl.innerHTML = '<p style="color:#c00;">️ 加载失败：' + escapeHtml(err.message) + '</p>';
         }
     }
-
-    /* ── 自动加载「关于我」── */
-    (function autoLoadAbout() {
-        const el = document.getElementById('about-content');
-        if (el) loadMarkdown('关于我.md', el);
-    })();
-
-    /* ── 文档查看器 ── */
-    const viewer = document.getElementById('doc-viewer');
-    const viewerBody = document.getElementById('doc-viewer-body');
-    const viewerTitle = viewer.querySelector('.doc-title');
-
-    async function openDoc(path, label) {
-        viewer.classList.add('open');
-        viewerTitle.textContent = label;
-        viewerBody.innerHTML = '<p><span class="spinner"></span> 加载中…</p>';
-        await loadMarkdown(path, viewerBody);
-        // Scroll viewer into view
-        viewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    function closeViewer() {
-        viewer.classList.remove('open');
-    }
-
-    // Bind doc buttons
-    document.getElementById('doc-list').addEventListener('click', function(e) {
-        const btn = e.target.closest('button[data-md]');
-        if (!btn) return;
-        const path = btn.getAttribute('data-md');
-        const label = btn.textContent.replace(/^[📄🔧📝📋]\s*/, '');
-        openDoc(path, label);
-    });
 
     /* ── Navigation ── */
     const nav = document.getElementById('main-nav');
@@ -696,11 +591,6 @@
         const section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
-        }
-        // Reload about content when navigating to it
-        if (sectionId === 'about') {
-            const el = document.getElementById('about-content');
-            if (el) loadMarkdown('关于我.md', el);
         }
     });
 
