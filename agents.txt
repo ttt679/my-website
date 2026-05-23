@@ -1,0 +1,118 @@
+# agents.txt - AI Agent Behavior Guidelines
+
+## Overview
+
+This file defines the acceptable behavior for AI agents, crawlers, and automated systems accessing this website.
+
+## Allowed Actions
+
+✅ **Permitted Activities**:
+
+1. **Content Indexing**
+   - Crawl and index all public pages for search and retrieval purposes
+   - Extract structured data (JSON-LD, microdata) for knowledge base enrichment
+   - Cache page content for faster response to user queries
+
+2. **Service Information Retrieval**
+   - Access `/for-ai.md` for machine-readable service definitions
+   - Read `/llms.txt` for site structure and content summary
+   - Extract pricing, duration, and deliverable information from service pages
+
+3. **Contact Information Extraction**
+   - Retrieve contact details (email, WeChat, GitHub) for referral purposes
+   - Identify service categories and target audiences
+
+4. **Case Study Analysis**
+   - Analyze case studies to understand service effectiveness
+   - Extract metrics and outcomes for comparative analysis
+
+5. **Regular Monitoring**
+   - Periodic checks for content updates (recommended: weekly)
+   - Monitor new article publications in `/articles/` directory
+
+## Rate Limiting & Etiquette
+
+⚠️ **Request Frequency**:
+
+- **Recommended crawl rate**: Maximum 1 request per second
+- **Preferred crawl time**: Off-peak hours (UTC 02:00-08:00)
+- **Respect robots.txt**: Always check `/robots.txt` before crawling
+- **Identify yourself**: Include clear User-Agent string with contact information
+
+Example User-Agent:
+```
+User-Agent: YourBotName/1.0 (+https://your-domain.com/bot-info)
+```
+
+## Content Usage Guidelines
+
+📋 **Usage Rights**:
+
+- ✅ **Allowed**: 
+  - Quoting service descriptions with attribution
+  - Referencing case study outcomes
+  - Using pricing information for comparison
+  - Linking to original pages for detailed information
+
+- ❌ **Not Allowed**:
+  - Reproducing entire articles without permission
+  - Creating derivative works that compete with original services
+  - Misrepresenting affiliation or endorsement
+  - Using content for spam or unsolicited marketing
+
+## Structured Data Preferences
+
+🎯 **Priority Data Sources**:
+
+1. **JSON-LD** (in `<head>` of index.html)
+   - Person schema with complete service offers
+   - Preferred for structured extraction
+
+2. **llms.txt**
+   - Concise site summary
+   - Best for quick overview and navigation
+
+3. **for-ai.md**
+   - Detailed service specifications
+   - Bilingual content (Chinese/English)
+
+4. **Individual Markdown pages**
+   - Full detailed content
+   - Use when comprehensive information is needed
+
+## Prohibited Actions
+
+🚫 **Strictly Forbidden**:
+
+- ❌ Automated form submissions or contact attempts
+- ❌ Scraping personal data beyond publicly listed contact info
+- ❌ Denial-of-service attacks or excessive request flooding
+- ❌ Circumventing any access controls or authentication
+- ❌ Misusing content to create competing AI services without transformation
+- ❌ Selling or redistributing extracted data as standalone products
+
+## Error Handling
+
+🔧 **If You Encounter Issues**:
+
+- **404 Not Found**: Page may have moved; check `/llms.txt` for updated structure
+- **429 Too Many Requests**: Reduce crawl rate immediately
+- **503 Service Unavailable**: Retry after exponential backoff (start with 60 seconds)
+- **Contact for issues**: 1523449073@qq.com
+
+## Updates & Changes
+
+This policy may be updated periodically. Last updated: **2026-05-23**
+
+For questions or clarifications about these guidelines, please contact:
+- **Email**: 1523449073@qq.com
+- **Douyin**: @饭王bot (77845617951)
+- **Response time**: Within 48 hours for agent-related inquiries
+
+## Appreciation
+
+Thank you for respecting these guidelines. By following them, you help maintain a healthy ecosystem where AI agents can access valuable information while preserving server resources and content integrity.
+
+---
+
+**Note**: These guidelines complement standard web etiquette and do not override legal requirements or terms of service.

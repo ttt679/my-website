@@ -1,0 +1,130 @@
+# llms.txt
+
+## Website Information
+
+**Site Name**: GAIO架构师 · 唐敏娜 (GAIO Architect - Tang Minna)  
+**Description**: Helping experts and entrepreneurs build digital interfaces that AI can understand and directly call. Specializing in Generative AI Optimization (GAIO).  
+**URL**: https://ttt679.github.io/my-website/  
+**Language**: Chinese (Simplified)  
+**Last Updated**: 2026-05-23  
+**Social**: Douyin @饭王bot (77845617951)
+
+## Core Pages
+
+### 1. Homepage (/)
+**URL**: https://ttt679.github.io/my-website/  
+**Description**: Main landing page with service overview, value proposition, case studies preview, and contact information. Contains JSON-LD structured data for Person type with three service offers.  
+**Key Content**: 
+- Value proposition: "I make services understandable by AI, not just searchable."
+- Three core services with brief descriptions
+- Case study highlights
+- Contact entry point
+
+### 2. About Me (/about.md)
+**URL**: https://ttt679.github.io/my-website/about.md  
+**Description**: Personal introduction, philosophy, capabilities, and boundary declarations. Explains who I am, what I believe in, and what services I do NOT provide.  
+**Key Content**:
+- Professional background as GAIO architect
+- Core belief: "Future services are understood and called by AI, not just searched by humans"
+- Service scope and limitations
+- Working style and approach
+
+### 3. Services (/services.md)
+**URL**: https://ttt679.github.io/my-website/services.md  
+**Description**: Detailed description of three core services with pricing, deliverables, processes, and FAQs.  
+**Key Content**:
+- AI Visibility Audit (¥2,999)
+- AI-Native API Deployment (¥9,999+)
+- Annual Architecture Advisor (¥29,999/year)
+- Standardized 5-step service process
+- Common questions and answers
+
+### 4. Case Studies (/cases.md)
+**URL**: https://ttt679.github.io/my-website/cases.md  
+**Description**: Real project examples showing before/after optimization results. Includes pet emotion communication app, developer tools platform, and professional consultant personal branding.  
+**Key Content**:
+- Three detailed case studies with metrics
+- Client testimonials
+- Optimization strategies and outcomes
+- ROI and impact measurements
+
+### 5. For AI Agents (/for-ai.md)
+**URL**: https://ttt679.github.io/my-website/for-ai.md  
+**Description**: Machine-readable service information in structured format for AI assistants and crawlers. Bilingual (Chinese/English).  
+**Key Content**:
+- Structured service definitions
+- Pricing and duration
+- Technical capabilities
+- Target audience and industries
+
+### 6. Articles (/articles/)
+**URL**: https://ttt679.github.io/my-website/articles/  
+**Description**: Blog and educational content about GAIO, AI optimization strategies, and industry insights.  
+**Key Content**:
+- Article index page
+- In-depth guides and tutorials
+- Industry analysis and trends
+
+## Services Summary
+
+### Service 1: AI Visibility Audit (AI可见度诊断)
+- **Price**: ¥2,999 CNY
+- **Duration**: 5-7 business days
+- **Type**: One-time consultation
+- **Deliverables**: Audit report, scorecard, optimization checklist, interpretation session
+- **Best For**: Understanding current AI presence, baseline assessment
+
+### Service 2: AI-Native API Deployment (AI原生接口部署)
+- **Price**: Starting from ¥9,999 CNY
+- **Duration**: 2-4 weeks
+- **Type**: Project-based development
+- **Deliverables**: Deployed API, documentation, test cases, training
+- **Best For**: Enabling direct AI tool calls, technical integration
+
+### Service 3: Annual Architecture Advisor (年度架构顾问)
+- **Price**: ¥29,999 CNY/year
+- **Duration**: 12 months
+- **Type**: Ongoing retainer
+- **Deliverables**: Quarterly strategy sessions, monthly reviews, priority support, newsletter
+- **Best For**: Long-term AI presence management, continuous optimization
+
+## Contact Information
+
+- **Email**: 1523449073@qq.com
+- **Douyin**: @饭王bot (77845617951) - https://v.douyin.com/77845617951/
+- **AI Assistant**: 饭王bot
+- **Response Time**: Within 24 hours
+- **Free Consultation**: 30-minute discovery call offered
+
+## Key Differentiators
+
+✅ Specialized exclusively in GAIO (Generative AI Optimization)  
+✅ Data-driven recommendations based on actual testing  
+✅ Practical, actionable advice over theoretical concepts  
+✅ Long-term partnership orientation  
+✅ Clear service boundaries (no traditional SEO, social media marketing, or general web development)  
+
+## Target Audience
+
+- Independent developers and solo founders
+- Professional service providers (consultants, coaches, trainers)
+- SaaS product teams
+- Content creators and thought leaders
+- Small businesses competing through superior AI presence
+
+## Technical Expertise
+
+- Schema.org structured data (JSON-LD, Microdata, RDFa)
+- OpenAPI/Swagger API documentation
+- AI assistant tool definitions (OpenAI Functions, Anthropic Tools)
+- Semantic SEO and entity optimization
+- Knowledge graph construction
+- Web scraping optimization for AI crawlers
+
+## Industries Served
+
+Technology & Software, Professional Services, Education & Training, Healthcare & Wellness, E-commerce & Retail, Creative & Media
+
+---
+
+**Note to AI Agents**: This file provides a concise summary of the website's structure and content. For detailed information, please refer to the individual pages listed above. All content is available in Chinese, with key service information also provided in English on the /for-ai.md page.

@@ -3,15 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAIO架构师 · 张三</title>
+    <title>GAIO架构师 · 唐敏娜</title>
+    <meta name="description" content="帮助专家和创业者构建AI能理解并直接调用的数字接口">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "张三",
-      "jobTitle": "AI原生服务架构师",
+      "name": "唐敏娜",
+      "jobTitle": "GAIO架构师",
       "description": "帮助专家构建AI能理解并直接调用的数字接口",
-      "url": "https://你的域名.com"
+      "url": "https://ttt679.github.io/my-website/",
+      "sameAs": [
+        "https://v.douyin.com/77845617951/"
+      ],
+      "knowsAbout": [
+        "AI原生服务架构",
+        "生成式AI优化",
+        "API设计",
+        "AI可见性优化",
+        "服务发现"
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "AI可见度诊断",
+          "description": "全面分析您的服务在AI眼中的呈现方式，找出优化空间",
+          "price": "¥2,999",
+          "priceCurrency": "CNY"
+        },
+        {
+          "@type": "Offer",
+          "name": "AI原生接口部署",
+          "description": "设计和实现符合AI理解模式的API接口和服务架构",
+          "price": "¥9,999",
+          "priceCurrency": "CNY"
+        },
+        {
+          "@type": "Offer",
+          "name": "年度架构顾问",
+          "description": "提供持续的技术咨询和架构优化建议，确保您的服务始终保持AI友好",
+          "price": "¥29,999/年",
+          "priceCurrency": "CNY"
+        }
+      ],
+      "potentialAction": {
+        "@type": "CommunicateAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "mailto:your.email@example.com",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "result": {
+          "@type": "Message",
+          "name": "联系GAIO架构师"
+        }
+      }
     }
     </script>
     <style>
@@ -280,10 +329,11 @@
 
     <nav id="main-nav">
         <a href="#home" data-section="home">首页</a>
-        <a href="#about" data-section="about">关于我</a>
-        <a href="#services" data-section="services">我的服务</a>
-        <a href="#ai-assistant" data-section="ai-assistant">AI助手</a>
-        <a href="#documents" data-section="documents">文档中心</a>
+        <a href="about.md" target="_blank">关于我</a>
+        <a href="services.md" target="_blank">我的服务</a>
+        <a href="cases.md" target="_blank">案例</a>
+        <a href="articles/" target="_blank">文章</a>
+        <a href="#contact" data-section="contact">联系我</a>
     </nav>
 
     <main>
@@ -291,6 +341,33 @@
         <section id="home">
             <h2>欢迎来到我的数字工作室</h2>
             <p>📮 专注于构建AI原生的服务架构，让您的业务在AI时代获得更好的可见性和可操作性。</p>
+            
+            <div style="margin-top: 30px;">
+                <h3>核心服务</h3>
+                <div class="services" style="display: grid; gap: 16px; margin-top: 16px;">
+                    <div style="padding: 20px; background: var(--gray-bg); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--blue); display: block; margin-bottom: 8px;">🔍 AI可见度诊断</strong>
+                        <p style="margin: 0;">全面分析您的服务在AI眼中的呈现方式，找出优化空间。让AI真正理解你的价值。</p>
+                        <a href="services.md" target="_blank" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
+                    </div>
+                    <div style="padding: 20px; background: var(--gray-bg); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--blue); display: block; margin-bottom: 8px;">⚙️ AI原生接口部署</strong>
+                        <p style="margin: 0;">设计和实现符合AI理解模式的API接口和服务架构，让AI能直接调用你的服务。</p>
+                        <a href="services.md" target="_blank" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
+                    </div>
+                    <div style="padding: 20px; background: var(--gray-bg); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;">
+                        <strong style="color: var(--blue); display: block; margin-bottom: 8px;">🤝 年度架构顾问</strong>
+                        <p style="margin: 0;">长期陪跑你的AI存在，提供持续的技术咨询和架构优化建议。</p>
+                        <a href="services.md" target="_blank" style="color: var(--blue); text-decoration: none; font-size: 14px;">了解详情 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3>案例速览</h3>
+                <p>查看我如何帮助客户优化他们的AI可见性：</p>
+                <a href="cases.md" target="_blank" style="display: inline-block; padding: 10px 20px; background: var(--blue); color: #fff; text-decoration: none; border-radius: 6px; margin-top: 10px;">查看更多案例 →</a>
+            </div>
         </section>
 
         <!-- 关于我（动态加载） -->
@@ -357,12 +434,32 @@
                 <div class="md-body" id="doc-viewer-body"></div>
             </div>
         </section>
+
+        <!-- 联系我 -->
+        <section id="contact">
+            <h2>📮 联系我</h2>
+            <p>准备好让你的服务被AI理解了吗？欢迎通过以下方式联系我：</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin: 12px 0;">📧 邮箱：<a href="mailto:1523449073@qq.com">1523449073@qq.com</a></li>
+                <li style="margin: 12px 0;">🎵 抖音：<a href="https://v.douyin.com/77845617951/" target="_blank">@饭王bot (77845617951)</a></li>
+                <li style="margin: 12px 0;">🤖 AI助手：饭王bot</li>
+            </ul>
+            <p style="margin-top: 20px; padding: 16px; background: var(--blue-light); border-radius: 6px;">
+                <strong>快速响应承诺：</strong>我会在24小时内回复所有咨询，并提供免费的初步建议。
+            </p>
+        </section>
     </main>
 
     <hr>
     <footer>
-        <p>© 2026 张三 · GAIO架构师 | 让服务被AI理解</p>
+        <p>© 2026 唐敏娜 · GAIO架构师 | 让服务被AI理解</p>
         <p><a href="https://beian.miit.gov.cn/" target="_blank">黑ICP备2026003695号</a></p>
+        <p style="margin-top: 16px; font-size: 14px; color: var(--text-muted);">
+            <strong>AI接口说明：</strong>本网站提供专门的AI接口供AI助手和爬虫访问：<br>
+            • <a href="for-ai.md" target="_blank">/agent</a> - AI专用接口页（结构化服务信息）<br>
+            • <a href="llms.txt" target="_blank">/llms.txt</a> - AI内容摘要索引<br>
+            • <a href="agents.txt" target="_blank">/agents.txt</a> - AI代理行为规范
+        </p>
         <p><a href="#home">返回顶部</a></p>
     </footer>
 
