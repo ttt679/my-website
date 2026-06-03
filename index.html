@@ -1,6 +1,188 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GAIO — AI Agent Workflow Hub",
+    "alternateName": ["GAIO", "超级个体 AI 工作流"],
+    "url": "https://bot.looom.top",
+    "description": "GAIO 是一个面向超级个体的 AI 工作流平台，提供 AI 工作流定制、个人品牌自动化、跨平台内容同步与发布、智能决策辅助系统。帮助个人以最低成本实现从创意到交付的全链路自动化，提升单位时间的产出价值。平台支持通过 OpenAI 兼容 API 调用 LangBot 智能体，支持标准 API Key 认证和 AI 支付认证两种方式。",
+    "applicationCategory": "AIApplication",
+    "operatingSystem": "Web",
+
+    "provider": {
+      "@type": "Organization",
+      "name": "GAIO",
+      "url": "https://bot.looom.top",
+      "description": "为超级个体提供 AI 驱动的自动化工作流服务"
+    },
+
+    "offers": {
+      "@type": "Offer",
+      "name": "AI Agent API Access",
+      "description": "通过 OpenAI 兼容 API 接入 LangBot 智能体，支持免费和付费两种调用模式",
+      "availability": "https://schema.org/InStock"
+    },
+
+    "hasAPI": {
+      "@type": "WebAPI",
+      "name": "LangBot Chat Completions API",
+      "url": "https://bot.looom.top/api/v1/chat/completions",
+      "documentation": "https://bot.looom.top/index-new.html",
+      "description": "OpenAI 兼容的 Chat Completions API，支持流式和非流式响应。",
+
+      "termsOfService": "https://bot.looom.top",
+
+      "webApiActions": [
+        {
+          "@type": "WebAPIAction",
+          "name": "ChatCompletions",
+          "description": "发送对话消息给 AI Agent，获取智能回复",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://bot.looom.top/api/v1/chat/completions",
+            "httpMethod": "POST",
+            "contentType": "application/json"
+          },
+
+          "authentication": [
+            {
+              "@type": "WebAPIAuthentication",
+              "name": "API Key 认证（免费/基础模式）",
+              "description": "使用 New API Key 进行认证。在 New API 管理面板中创建 key（sk- 前缀）。通过 HTTP Header 'Authorization: Bearer sk-YOUR_KEY' 传递。适合免费试用和基础功能调用。",
+              "authenticationType": "APIKey",
+              "parameterName": "Authorization",
+              "parameterLocation": "header",
+              "parameterValueFormat": "Bearer {api_key}",
+              "requiredHeader": {
+                "@type": "WebAPIHeader",
+                "name": "Authorization",
+                "value": "Bearer sk-YOUR_API_KEY",
+                "description": "New API Key，格式为 sk- 开头的一串随机字符"
+              }
+            },
+            {
+              "@type": "WebAPIAuthentication",
+              "name": "AI 付 支付认证（付费/高级模式）",
+              "description": "通过 AI 支付 token 进行认证，享受更高质量的服务和更多功能。需要同时传递 API Key 和 Payment Token。通过 HTTP Header 'X-Payment-Token: pay_xxx' 传递支付凭证。",
+              "authenticationType": "PaymentToken",
+              "parameterName": "X-Payment-Token",
+              "parameterLocation": "header",
+              "parameterValueFormat": "pay_{payment_token}",
+              "requiredHeader": {
+                "@type": "WebAPIHeader",
+                "name": "X-Payment-Token",
+                "value": "pay_YOUR_PAYMENT_TOKEN",
+                "description": "AI 付支付凭证，通过 AI 支付系统获取"
+              }
+            }
+          ],
+
+          "customHeaders": [
+            {
+              "@type": "WebAPIHeader",
+              "name": "Content-Type",
+              "value": "application/json",
+              "required": true,
+              "description": "请求体格式，必须为 application/json"
+            }
+          ],
+
+          "requestBody": {
+            "@type": "WebAPIRequestBody",
+            "contentType": "application/json",
+            "description": "OpenAI 兼容的 Chat Completions 请求体",
+            "example": {
+              "model": "langbot",
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "帮我分析一下最近一周的销售数据趋势"
+                }
+              ],
+              "stream": false
+            },
+            "schema": {
+              "model": "固定值 'langbot'",
+              "messages": "对话消息数组，每条消息包含 role（user/assistant/system）和 content",
+              "stream": "布尔值，true 返回 SSE 流式，false 返回完整 JSON"
+            }
+          },
+
+          "responseFormat": {
+            "@type": "WebAPIResponse",
+            "description": "OpenAI 兼容的响应格式。非流式返回完整 JSON，流式返回 SSE",
+            "example": {
+              "id": "chatcmpl-xxx",
+              "object": "chat.completion",
+              "model": "langbot",
+              "choices": [
+                {
+                  "index": 0,
+                  "message": {
+                    "role": "assistant",
+                    "content": "根据数据分析，本周销售额环比增长 12.3%..."
+                  },
+                  "finish_reason": "stop"
+                }
+              ]
+            },
+            "streamingExample": "data: {\"choices\":[{\"delta\":{\"content\":\"你好\"},\"index\":0}]}\\n\\ndata: [DONE]"
+          }
+        }
+      ]
+    },
+
+    "about": {
+      "@type": "Thing",
+      "name": "GAIO 服务概览",
+      "description": "GAIO 是 Agent Optimization 的缩写，致力于让智能体的业务被 AI 主动发现并调用。我们已接入 AI 支付，打通智能体商业化的最后一公里。通过 A2A（Agent-to-Agent）工作流协议，让你的 Agent 接入更广阔的调用网络，从被发现、被调用到变现，形成一站式的 Agent 商业闭环。",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "核心服务",
+          "value": "AI 工作流定制、个人品牌自动化、跨平台内容同步与发布、智能决策辅助"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "触发场景",
+          "value": "个人效率突破、轻量级工具开发、技能变现咨询"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "典型用户",
+          "value": "自由职业者、内容创作者、独立开发者"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "API 端点",
+          "value": "https://bot.looom.top/api/v1/chat/completions"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "管理面板",
+          "value": "https://bot.looom.top"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "API Key 获取方式",
+          "value": "登录 New API 管理面板 → 创建 API Key（格式: sk-xxx）"
+        }
+      ]
+    },
+
+    "potentialAction": {
+      "@type": "ViewAction",
+      "name": "查看 API 概览",
+      "target": "https://bot.looom.top/index-new.html",
+      "description": "包含完整 API 文档、调用示例和使用说明"
+    },
+
+    "keywords": "AI Agent, API, LangBot, 工作流自动化, A2A, 超级个体, AI 支付, Chat Completions, OpenAI 兼容, 智能体"
+  }
+  </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAIO架构师 · 唐敏娜</title>
