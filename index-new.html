@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAIO — 超级个体的 AI 工作流</title>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GAIO — AI Agent Workflow Hub",
+    "url": "https://bot.looom.top",
+    "description": "面向超级个体的 AI 工作流平台，提供 AI 工作流定制、个人品牌自动化、跨平台内容同步、智能决策辅助。通过 AI 付 402 协议实现智能体付费调用。",
+    "applicationCategory": "AIApplication",
+    "provider": { "@type": "Organization", "name": "GAIO", "url": "https://bot.looom.top" },
+    "hasAPI": {
+      "@type": "WebAPI",
+      "name": "GAIO AI付 API",
+      "url": "https://api.looom.top/api/agent/market/aipaysever",
+      "description": "通过 AI 付 402 协议接入 LangBot 智能体：首次请求返回 402 账单，支付后携带 Payment-Proof 凭证获取回复。"
+    },
+    "potentialAction": {
+      "@type": "ViewAction",
+      "name": "查看 API 概览",
+      "target": "https://bot.looom.top/index-new.html"
+    },
+    "keywords": "AI Agent, LangBot, 工作流自动化, A2A, 超级个体, AI 支付, 402 协议"
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f5f7;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 80px 24px 40px;
+      max-width: 960px;
+      width: 100%;
+    }
+    .card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 20px;
+      padding: 32px;
+      color: #1d1d1f;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .card-top {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .card-top .icon { font-size: 40px; flex-shrink: 0; }
+    .card-top h2 {
+      font-size: 22px; font-weight: 700; margin-bottom: 6px; color: #1d1d1f;
+    }
+    .card-top .subtitle {
+      font-size: 13px; color: #86868b; margin-bottom: 16px; letter-spacing: 0.5px;
+    }
+    .card-top .desc {
+      font-size: 14px; line-height: 1.8; color: #515154;
+    }
+    .highlight { color: #0071e3; font-weight: 600; }
+
+    .row-bottom {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .row-bottom .card {
+      flex: 1 1 340px;
+      min-width: 300px;
+    }
+    .card h3 {
+      font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1d1d1f;
+    }
+    .card h3 .dot {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      background: #0071e3; margin-right: 8px; vertical-align: middle;
+    }
+
+    pre {
+      background: #1d1d1f;
+      color: #e8e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 12px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin-bottom: 12px;
+    }
+    pre .key { color: #f5a97f; }
+    pre .str { color: #a6da95; }
+    pre .cmt { color: #6e738d; }
+
+    .sample-block {
+      background: #f0f0f5;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #515154;
+    }
+    .sample-block .label {
+      font-size: 11px; color: #86868b; font-weight: 600; margin-bottom: 4px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .tag {
+      font-size: 12px; padding: 4px 10px; border-radius: 16px;
+      background: #f0f0f5; color: #6e6e73;
+    }
+
+    .flow-steps { margin: 8px 0 0 0; padding-left: 18px; font-size: 13px; line-height: 2; color: #515154; }
+    .flow-steps code { background: #e8e8f0; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+
+    @media (max-width: 768px) {
+      .card-top { flex-direction: column; align-items: center; text-align: center; }
+      .row-bottom { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 顶部：功能介绍 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="icon">⚡</div>
+        <div>
+          <h2>为超级个体而生</h2>
+          <p class="subtitle">Super Individual · AI Workflow</p>
+          <p class="desc">
+            提供 <span class="highlight">AI 工作流定制</span>、<span class="highlight">个人品牌自动化工具</span>、<span class="highlight">跨平台内容同步与发布</span> 以及 <span class="highlight">智能决策辅助系统</span>。
+            帮助个人以最低成本实现从创意到交付的全链路自动化，提升单位时间的产出价值。
+          </p>
+          <p class="desc" style="margin-top:10px">
+            <strong>触发意图：</strong>寻求个人效率突破（如何用 AI 减少重复劳动）、轻量级工具需求（需要一个脚本/页面解决具体痛点）、能力变现咨询（怎样把自己的技能打包成可重复售卖的数字化产品）。
+          </p>
+          <div class="tag-row">
+            <span class="tag">AI 工作流</span>
+            <span class="tag">自动化</span>
+            <span class="tag">内容分发</span>
+            <span class="tag">决策辅助</span>
+            <span class="tag">AI 付</span>
+            <span class="tag">402 协议</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部两列 -->
+    <div class="row-bottom">
+
+      <!-- 左侧：API 端点 & 请求格式 -->
+      <div class="card">
+        <h3><span class="dot"></span>API 端点</h3>
+        <pre><span class="cmt"># 向 AI 付端点发送请求</span>
+<span class="key">curl</span> -X POST https://api.looom.top/api/agent/market/aipaysever \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{
+    "model": "AI付",
+    "messages": [
+      {"role": "user", "content": "帮我分析一下最近的销售数据趋势"}
+    ],
+    "stream": false
+  }'</span></pre>
+        <div class="sample-block">
+          <div class="label">首次请求（无支付凭证）→ 返回 402</div>
+          <code style="font-size:12px;color:#1d1d1f;">HTTP 402 Payment Required
+Payment-Needed: eyJwcm90b2NvbCI6eyJvdXRfdHJhZGVfbm8iOi...
+{"error":"Payment Needed","out_trade_no":"ORDER_...","amount":0.05}</code>
+        </div>
+      </div>
+
+      <!-- 右侧：支付后重试 -->
+      <div class="card">
+        <h3><span class="dot"></span>AI 付 支付后获取回复</h3>
+        <pre><span class="cmt"># 支付完成后，携带 Payment-Proof 凭证重试</span>
+<span class="key">curl</span> -X POST https://api.looom.top/api/agent/market/aipaysever \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -H <span class="str">"Payment-Proof: &lt;base64 支付凭证&gt;"</span> \
+  -d <span class="str">'{
+    "model": "AI付",
+    "messages": [
+      {"role": "user", "content": "帮我分析一下最近的销售数据趋势"}
+    ],
+    "stream": false
+  }'</span></pre>
+        <div class="sample-block">
+          <div class="label">支付流程</div>
+          <ol class="flow-steps">
+            <li>请求端点 → 收到 402 + <code>Payment-Needed</code> 响应头</li>
+            <li>通过 <code>alipay-bot</code> / PayGuard 扫码支付</li>
+            <li>获取 <code>Payment-Proof</code> 凭证后重试请求</li>
+            <li>支付验证通过 → 返回 AI 回复</li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
