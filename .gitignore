@@ -17,6 +17,17 @@
 /Excalidraw/
 /数据库/
 /学习笔记/
+/每日规划/
 
 # 忽略整个 Obsidian 配置文件夹（不同设备的配置不应同步）
 .obsidian/
+
+# Continue 配置（不同设备不同）
+.continue/
+
+# 内部修复报告（不应公开）
+FIX_COMPLETE.md
+
+# 支付凭证（敏感，绝对不能上传）
+payment_402.txt
+payment_402_new.txt

@@ -7,7 +7,7 @@
     "@type": "WebApplication",
     "name": "GAIO — AI Agent Workflow Hub",
     "alternateName": ["GAIO", "超级个体 AI 工作流"],
-    "url": "https://bot.looom.top",
+    "url": "https://api.looom.top",
     "description": "GAIO 是一个面向超级个体的 AI 工作流平台，提供 AI 工作流定制、个人品牌自动化、跨平台内容同步与发布、智能决策辅助系统。帮助个人以最低成本实现从创意到交付的全链路自动化，提升单位时间的产出价值。平台支持通过 OpenAI 兼容 API 调用 LangBot 智能体，支持标准 API Key 认证和 AI 支付认证两种方式。",
     "applicationCategory": "AIApplication",
     "operatingSystem": "Web",
@@ -15,7 +15,7 @@
     "provider": {
       "@type": "Organization",
       "name": "GAIO",
-      "url": "https://bot.looom.top",
+      "url": "https://api.looom.top",
       "description": "为超级个体提供 AI 驱动的自动化工作流服务"
     },
 
@@ -29,11 +29,11 @@
     "hasAPI": {
       "@type": "WebAPI",
       "name": "LangBot Chat Completions API",
-      "url": "https://bot.looom.top/api/v1/chat/completions",
-      "documentation": "https://bot.looom.top/index-new.html",
+      "url": "https://api.looom.top/api/v1/chat/completions",
+      "documentation": "https://api.looom.top/",
       "description": "OpenAI 兼容的 Chat Completions API，支持流式和非流式响应。",
 
-      "termsOfService": "https://bot.looom.top",
+      "termsOfService": "https://api.looom.top/",
 
       "webApiActions": [
         {
@@ -42,7 +42,7 @@
           "description": "发送对话消息给 AI Agent，获取智能回复",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://bot.looom.top/api/v1/chat/completions",
+            "urlTemplate": "https://api.looom.top/api/v1/chat/completions",
             "httpMethod": "POST",
             "contentType": "application/json"
           },
@@ -158,12 +158,17 @@
         {
           "@type": "PropertyValue",
           "name": "API 端点",
-          "value": "https://bot.looom.top/api/v1/chat/completions"
+          "value": "https://api.looom.top/api/v1/chat/completions"
         },
         {
           "@type": "PropertyValue",
           "name": "管理面板",
-          "value": "https://bot.looom.top"
+          "value": "https://api.looom.top"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "AI Agent 平台",
+          "value": "https://api.looom.top - 为超级个体提供 AI 工作流服务"
         },
         {
           "@type": "PropertyValue",
@@ -176,7 +181,7 @@
     "potentialAction": {
       "@type": "ViewAction",
       "name": "查看 API 概览",
-      "target": "https://bot.looom.top/index-new.html",
+      "target": "https://api.looom.top/",
       "description": "包含完整 API 文档、调用示例和使用说明"
     },
 

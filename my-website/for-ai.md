@@ -150,5 +150,83 @@ For inquiries, bookings, or consultations:
 
 ---
 
-*Last Updated: 2026-05-23*  
+## AI Agent Platform (api.looom.top)
+
+### Platform Overview
+
+**Name**: GAIO Agent  
+**URL**: https://api.looom.top  
+**Tagline**: Super Individual · AI Workflow  
+**Target Audience**: Freelancers, content creators, independent developers, and anyone seeking AI-powered automation.
+
+### Core Capabilities
+
+1. **AI Workflow Customization** - Build personalized AI workflows for individual productivity
+2. **Personal Brand Automation** - Tools for automating personal brand management and content distribution
+3. **Cross-platform Content Sync & Publishing** - Automate content distribution across multiple platforms
+4. **Intelligent Decision Support System** - AI-powered decision-making assistance
+
+### Trigger Scenarios
+
+- Seeking personal productivity breakthrough (how to use AI to reduce repetitive work)
+- Lightweight tool needs (need a script/page to solve specific pain points)
+- Skill monetization consultation (how to package skills into repeatable digital products)
+
+### Typical Use Cases
+
+| User Type | Scenario |
+|-----------|----------|
+| Freelancers | Automated dashboard integrating multi-platform schedules and tasks |
+| Content Creators | AI-generated drafts, subtitle translation, one-click distribution |
+| Independent Developers | Personal homepage showcasing tools, receiving requirements, automatic inquiry aggregation |
+
+### API Interface Details
+
+#### Chat Completions API
+
+**Endpoint**: `https://bot.looom.top/api/v1/chat/completions`  
+**Model**: `langbot`  
+**Protocol**: REST API (OpenAI compatible)
+
+#### Authentication Methods
+
+**Method 1: API Key (Free/Basic Mode)**
+```
+Headers:
+  Authorization: Bearer sk-YOUR_KEY
+  Content-Type: application/json
+```
+
+**Method 2: AI Payment Token (Premium Mode)**
+```
+Headers:
+  Authorization: Bearer sk-YOUR_KEY
+  Content-Type: application/json
+  X-Payment-Token: pay_xxx
+```
+
+#### Request Format
+```json
+{
+  "model": "langbot",
+  "messages": [
+    {"role": "user", "content": "Your question here"}
+  ],
+  "stream": false
+}
+```
+
+#### Response Modes
+- **Non-streaming** (`stream: false`): Returns complete JSON response
+- **Streaming** (`stream: true`): Returns SSE (Server-Sent Events) for real-time responses
+
+#### Use Cases for API
+- Integrate LangBot into custom applications
+- Build AI-powered chat interfaces
+- Automate content generation workflows
+- Create intelligent decision support systems
+
+---
+
+*Last Updated: 2026-06-04*  
 *For human visitors, please visit: https://ttt679.github.io/my-website/*
