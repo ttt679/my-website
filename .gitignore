@@ -11,6 +11,7 @@
 .obsidian/themes/   # 如果主题不想同步
 .copilot/           # Copilot 对话历史
 .smart-connections/ # 插件缓存
+.workbuddy/
 
 # 你不想同步的笔记文件夹（根目录下）
 /杂项/
