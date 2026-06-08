@@ -29,3 +29,5 @@ helloworld-1779356293/serverless.yaml
 helloworld-1779356293/serverless.yml
 *.env
 .env.local
+
+/每日规划/06-06.md
