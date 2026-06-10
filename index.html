@@ -350,6 +350,35 @@
       margin-top: 6px;
     }
 
+    /* ── Social media grid ── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .social-item {
+      background: var(--accent-soft);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.12s;
+    }
+    .social-item:hover { transform: translateY(-2px); }
+    .social-item .social-icon { font-size: 24px; margin-bottom: 8px; }
+    .social-item .social-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .social-item .social-id {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
     /* ── NewAPI link card ── */
     .link-card {
       display: flex;
@@ -701,6 +730,28 @@
       <div class="qr-wrap">
         <img src="qrcode.png" alt="微信二维码" loading="lazy">
         <div class="qr-label">微信扫一扫</div>
+      </div>
+    </div>
+
+    <!-- ═══ 社交媒体 ═══ -->
+    <div class="card">
+      <h2><span class="dot"></span>社交媒体</h2>
+      <div class="social-grid">
+        <a href="https://forum.trae.cn/u/%E6%8C%A4%E7%89%99%E8%86%8F%E7%A5%9E%E5%99%A8/activity" target="_blank" rel="noopener" class="social-item">
+          <div class="social-icon">🔗</div>
+          <div class="social-name">Solo 社区</div>
+          <div class="social-id">挤牙膏神器</div>
+        </a>
+        <a href="https://juejin.cn/user/779974923263403" target="_blank" rel="noopener" class="social-item">
+          <div class="social-icon">💎</div>
+          <div class="social-name">稀土掘金</div>
+          <div class="social-id">挤牙膏神器</div>
+        </a>
+        <a href="https://open.alipay.com/portal/forum/developer/9751017146/article" target="_blank" rel="noopener" class="social-item">
+          <div class="social-icon">💳</div>
+          <div class="social-name">支付宝开发者社区</div>
+          <div class="social-id">挤牙膏神器</div>
+        </a>
       </div>
     </div>
 
