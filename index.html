@@ -303,6 +303,116 @@
       color: var(--text);
     }
 
+    /* ── Service cards ── */
+    .service-section {
+      text-align: center;
+      margin-bottom: -8px;
+    }
+    .service-section .section-hero {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+    .service-section .section-subhero {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .service-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .service-card {
+      flex: 1 1 340px;
+      min-width: 280px;
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card .svc-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .service-card .svc-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .service-card .svc-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      flex: 1;
+    }
+    .service-card .svc-features li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      line-height: 1.6;
+    }
+    .service-card .svc-features li:last-child { border-bottom: none; }
+    .service-card .svc-features li .fi { margin-right: 8px; }
+    .service-card .svc-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.12);
+      color: var(--text-secondary);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .service-card .svc-footer-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 14px;
+      letter-spacing: 0.1px;
+    }
+
     /* ── Contact card ── */
     .contact-card {
       display: flex;
@@ -589,6 +699,7 @@
       .card { padding: 22px 20px; }
       .hero { flex-direction: column; align-items: flex-start; gap: 12px; }
       .api-row { flex-direction: column; }
+      .service-row { flex-direction: column; }
       .link-card { flex-direction: column; align-items: flex-start; }
       .contact-card { flex-direction: column; align-items: center; text-align: center; }
       .contact-card .contact-info { text-align: center; }
@@ -703,6 +814,45 @@
             <li>携带凭证重试 → 返回 AI 回复</li>
           </ol>
         </div>
+      </div>
+    </div>
+
+    <!-- ═══ 服务卡片 ═══ -->
+    <div class="service-section" style="margin-top:20px;">
+      <div class="section-hero">让每一个体，拥有自己的AI商业智能体</div>
+      <div class="section-subhero">AI Native</div>
+    </div>
+    <div class="service-row">
+      <!-- 卡片一：智能体搭建服务 -->
+      <div class="service-card">
+        <div class="svc-title">AI原生智能体构建器</div>
+        <div class="svc-subtitle">把你的业务能力，封装成一个可被AI发现的数字员工</div>
+        <ul class="svc-features">
+          <li><span class="fi">🚀</span> 零服务器：静态文件托管，GitHub Pages等免费空间即可运行</li>
+          <li><span class="fi">🔌</span> 原生AI支付：已打通支付宝AI付，开箱即用</li>
+          <li><span class="fi">🧩</span> AI主动获客：内置AI SEO，让其他智能体主动找到你</li>
+          <li><span class="fi">💰</span> 一次性付费：买断制，永久使用</li>
+        </ul>
+        <div class="svc-actions">
+          <a href="#" class="btn-primary">¥XXX 立即获取</a>
+          <a href="#" class="btn-ghost">查看 Demo</a>
+        </div>
+        <div class="svc-footer-note">*包含完整教程 + 工具包 | 3分钟部署上线</div>
+      </div>
+      <!-- 卡片二：AI转型咨询服务 -->
+      <div class="service-card">
+        <div class="svc-title">AI时代商业转型咨询</div>
+        <div class="svc-subtitle">从战略到落地的一站式AI解决方案</div>
+        <ul class="svc-features">
+          <li><span class="fi">🎯</span> AI获客战略：定制你的智能体发现与分发策略</li>
+          <li><span class="fi">🛠️</span> 全托管搭建：从0到1，为你打造专属AI商业智能体</li>
+          <li><span class="fi">📈</span> 组织赋能：帮助你的团队构建AI原生能力</li>
+        </ul>
+        <div class="svc-actions">
+          <a href="#" class="btn-primary">预约30分钟免费诊断</a>
+          <a href="#" class="btn-ghost">查看案例</a>
+        </div>
+        <div class="svc-footer-note">诊断后提供初步建议框架，无强制消费</div>
       </div>
     </div>
 
