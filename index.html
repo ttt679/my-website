@@ -853,6 +853,7 @@
       <a href="#" class="brand" onclick="switchPage('home');return false"><span class="accent">AI原生</span> · Mr.挤牙膏神器</a>
       <div class="nav-links">
         <a href="#" class="nav-page active" data-page="home">首页</a>
+        <a href="#" class="nav-page" data-page="agentpay">AgentPay</a>
         <a href="#" class="nav-page" data-page="mcp">MCP</a>
         <a href="#" class="nav-page" data-page="tools">工具文档</a>
         <a href="#blog-section">博客</a>
@@ -974,8 +975,8 @@
           <li><span class="fi">💰</span> 一次性付费：买断制，永久使用</li>
         </ul>
         <div class="svc-actions">
-          <a href="#" class="btn-primary">¥XXX 立即获取</a>
-          <a href="#" class="btn-ghost">查看 Demo</a>
+          <a href="#" class="btn-primary" onclick="switchPage('agentpay');return false">¥49.9 立即获取</a>
+          <a href="#" class="btn-ghost" onclick="switchPage('agentpay');return false">接入指南</a>
         </div>
         <div class="svc-footer-note">*包含完整教程 + 工具包 | 3分钟部署上线</div>
       </div>
@@ -1059,6 +1060,104 @@
 
     </div>
     <!-- ═══ End page-home ═══ -->
+
+    <!-- ═══ Page: AgentPay ═══ -->
+    <div id="page-agentpay" class="page">
+
+    <div class="mcp-hero">
+      <div class="mcp-title">AgentPay Scaffold</div>
+      <div class="mcp-subtitle">三步配置，你的服务就能被 AI Agent 付费调用</div>
+      <div class="mcp-endpoint-row">
+        <span class="mcp-endpoint-tag">MCP · Streamable HTTP</span>
+        <span class="mcp-badge paid">AI 付费</span>
+        <span class="mcp-badge" style="background:var(--accent-soft);color:var(--accent)">¥49.9 买断</span>
+      </div>
+    </div>
+
+    <!-- ═══ 板块一：MCP 配置 ═══ -->
+    <div class="section-callout" style="max-width:720px;margin:0 auto 24px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <span style="font-size:15px;font-weight:600;">MCP 配置</span>
+        <span style="font-size:11px;color:var(--text-muted);background:var(--tag-bg);padding:2px 8px;border-radius:4px;">复制到你的 agent 的 mcp.json</span>
+      </div>
+      <div style="position:relative;">
+        <pre style="background:var(--code-bg);color:var(--code-text);padding:16px 20px;border-radius:10px;font-size:12px;line-height:1.7;overflow-x:auto;margin:0;"><code>{
+  "mcpServers": {
+    "agentpay": {
+      "type": "streamable-http",
+      "url": "http://localhost:9000/mcp"
+    }
+  }
+}</code></pre>
+        <button onclick="copyCode(this)" data-code='{"mcpServers":{"agentpay":{"type":"streamable-http","url":"http://localhost:9000/mcp"}}}' style="position:absolute;top:8px;right:8px;background:rgba(255,255,255,0.1);color:#fff;border:none;padding:4px 12px;border-radius:6px;font-size:11px;cursor:pointer;">复制</button>
+      </div>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">配置后你的 agent 会自动发现 <code style="background:var(--tag-bg);padding:1px 5px;border-radius:3px;">ask</code> 工具，首次调用触发支付。</p>
+    </div>
+
+    <!-- ═══ 板块二：支付流程指引 ═══ -->
+    <div class="section-callout" style="max-width:720px;margin:0 auto 24px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <span style="font-size:15px;font-weight:600;">支付流程指引</span>
+        <span style="font-size:11px;color:var(--text-muted);background:var(--tag-bg);padding:2px 8px;border-radius:4px;">基于支付宝 AI 付 402 协议</span>
+      </div>
+      <div class="flow-block" style="counter-reset:step;list-style:none;padding:0;margin:0;">
+        <div style="counter-increment:step;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
+          <span style="min-width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+          <div>
+            <strong style="font-size:13px;">Agent 首次调用，获取账单</strong>
+            <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">Agent 调用 <code style="background:var(--code-bg);color:var(--code-text);padding:1px 6px;border-radius:3px;font-size:11px;">ask</code> 工具时不传 <code style="background:var(--code-bg);color:var(--code-text);padding:1px 6px;border-radius:3px;font-size:11px;">trade_no</code> → MCP Server 返回 402 账单。</p>
+          </div>
+        </div>
+        <div style="counter-increment:step;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
+          <span style="min-width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+          <div>
+            <strong style="font-size:13px;">保存 payment_needed</strong>
+            <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">从 402 响应中复制 <code style="background:var(--code-bg);color:var(--code-text);padding:1px 6px;border-radius:3px;font-size:11px;">payment_needed</code> 字段，保存为 <code style="background:var(--code-bg);color:var(--code-text);padding:1px 6px;border-radius:3px;font-size:11px;">402_needed_file.txt</code>。</p>
+          </div>
+        </div>
+        <div style="counter-increment:step;display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
+          <span style="min-width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+          <div>
+            <strong style="font-size:13px;">扫码支付</strong>
+            <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">用 alipay-bot CLI 执行：</p>
+            <pre style="background:var(--code-bg);color:var(--code-text);padding:10px 14px;border-radius:8px;font-size:11px;line-height:1.6;overflow-x:auto;margin:6px 0 0;"><code>alipay-bot 402-buyer-pay --session-id UUID -f 402_needed_file.txt -r resources_url</code></pre>
+            <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">扫码支付后记录返回的 32 位 <code style="background:var(--code-bg);color:var(--code-text);padding:1px 6px;border-radius:3px;font-size:11px;">trade_no</code>。</p>
+          </div>
+        </div>
+        <div style="counter-increment:step;display:flex;gap:12px;align-items:flex-start;">
+          <span style="min-width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</span>
+          <div>
+            <strong style="font-size:13px;">带 trade_no 重调，获取结果</strong>
+            <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">Agent 再次调用 <code style="background:var(--code-bg);color:var(--code-text);padding:1px 6px;border-radius:3px;font-size:11px;">ask(input="...", trade_no="2026...")</code> → MCP 验证支付 → 返回 AI 回复 + 脚手架下载链接。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 示例 402 响应 ═══ -->
+    <div class="section-callout" style="max-width:720px;margin:0 auto 32px;">
+      <div style="font-size:13px;font-weight:600;margin-bottom:10px;">402 响应示例</div>
+      <pre style="background:var(--code-bg);color:var(--code-text);padding:16px 20px;border-radius:10px;font-size:12px;line-height:1.7;overflow-x:auto;margin:0;"><code>{
+  "needs_payment": true,
+  "amount": "49.90",
+  "out_trade_no": "20260628...",
+  "payment_needed": "eyJwcm90b2NvbCI6...",
+  "how_to_pay": "1.生成UUID 2.保存payment_needed为402_needed_file.txt 3.alipay-bot 402-buyer-pay 4.记录trade_no重调"
+}</code></pre>
+    </div>
+
+    <!-- ═══ 底部 CTA ═══ -->
+    <div style="max-width:720px;margin:0 auto 40px;text-align:center;">
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">脚手架包含：MCP Server 源码 · 支付网关 · 配置向导 · 4种 LLM 上游预设</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="#" class="btn-primary" style="padding:10px 28px;font-size:14px;">¥49.9 获取脚手架</a>
+        <a href="#" class="btn-ghost" style="padding:10px 28px;font-size:14px;">联系作者</a>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:14px;">一次性付费 · 永久使用 · 基于支付宝 AI 付 · 个人 0 费率</p>
+    </div>
+
+    </div>
+    <!-- ═══ End page-agentpay ═══ -->
 
     <!-- ═══ Page: MCP ═══ -->
     <div id="page-mcp" class="page">
@@ -1589,6 +1688,22 @@
     switchPage('home');
     setTimeout(() => openDoc('content/关于我.md', '关于'), 200);
   });
+
+  /* ── AgentPay copy code ── */
+  function copyCode(btn) {
+    const code = btn.getAttribute('data-code');
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = '已复制';
+      setTimeout(() => { btn.textContent = '复制'; }, 1500);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = code; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      btn.textContent = '已复制';
+      setTimeout(() => { btn.textContent = '复制'; }, 1500);
+    });
+  }
 
   /* ── Init ── */
   renderBlogCards();
