@@ -606,8 +606,8 @@
           <span style="font-size:16px;">💬 微信</span>
         </label>
       </div>
-      <div class="field" id="contact-email"><input type="email" name="contact_value" placeholder="你的邮箱"></div>
-      <div class="field" id="contact-wechat" style="display:none;"><input type="text" name="contact_value" placeholder="你的微信号"></div>
+      <div class="field" id="contact-email"><input type="email" name="email" placeholder="你的邮箱" required></div>
+      <div class="field" id="contact-wechat" style="display:none;"><input type="text" name="wechat" placeholder="你的微信号" required></div>
       <button type="submit" class="card-btn btn-fill" style="font-size:16px;width:100%;" id="submit-btn">提交 →</button>
       <p id="submit-status" style="text-align:center;margin-top:10px;font-size:14px;min-height:20px;"></p>
     </form>
@@ -659,8 +659,15 @@
     var r=document.querySelector('input[name="contact_type"]:checked');
     var emailEl=document.getElementById('contact-email');
     var wechatEl=document.getElementById('contact-wechat');
-    if(r&&r.value==='email'){emailEl.style.display='block';wechatEl.style.display='none';}
-    else{emailEl.style.display='none';wechatEl.style.display='block';}
+    var emailInput=emailEl.querySelector('input');
+    var wechatInput=wechatEl.querySelector('input');
+    if(r&&r.value==='email'){
+      emailEl.style.display='block';wechatEl.style.display='none';
+      emailInput.disabled=false;wechatInput.disabled=true;wechatInput.value='';
+    }else{
+      emailEl.style.display='none';wechatEl.style.display='block';
+      emailInput.disabled=true;wechatInput.disabled=false;emailInput.value='';
+    }
   }
 
   function sendToFeishu(e){
@@ -670,7 +677,7 @@
     var f = document.getElementById('order-form');
     var fd = new FormData(f);
     var ct = fd.get('contact_type');
-    var cv = fd.get('contact_value');
+    var cv = ct==='email'?fd.get('email'):fd.get('wechat');
     var note = fd.get('note') || '（默认：最近5条视频）';
 
     var text = '📊 新订单\n\n' +
@@ -698,6 +705,8 @@
         f.reset();
         document.getElementById('contact-wechat').style.display='none';
         document.getElementById('contact-email').style.display='block';
+        document.getElementById('contact-email').querySelector('input').disabled=false;
+        document.getElementById('contact-wechat').querySelector('input').disabled=true;
         btn.textContent = '已提交 ✓';
         setTimeout(function(){btn.textContent='提交 →';btn.disabled=false;},3000);
       } else {
