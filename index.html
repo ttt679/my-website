@@ -11,6 +11,7 @@
     --text-dim: #888;
     --text-muted: #555;
     --accent: #10b981;
+    --amber: #d4782f;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -135,6 +136,50 @@
   @keyframes pulse {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
+  }
+
+  /* ── 护火手记入口 ── */
+  .fire-entry {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.25);
+    transition: color 0.35s ease;
+  }
+  .fire-entry .fire-line {
+    width: 100%;
+    height: 2px;
+    background: rgba(212,120,47,0.3);
+    transition: background 0.35s ease;
+  }
+  .fire-entry .fire-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .fire-entry .fire-arrow {
+    font-size: 0.85em;
+    opacity: 0.4;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .fire-entry:hover {
+    color: var(--amber);
+  }
+  .fire-entry:hover .fire-line {
+    background: var(--amber);
+  }
+  .fire-entry:hover .fire-arrow {
+    opacity: 1;
+    transform: translateX(2px);
   }
 
   /* ── Content below fold ── */
@@ -406,6 +451,11 @@
     <span>SCROLL</span>
     <div class="scroll-line"></div>
   </div>
+
+  <a href="fire/index.html" class="fire-entry">
+    <span class="fire-line"></span>
+    <span class="fire-row">护火手记 · 第一封<span class="fire-arrow"> →</span></span>
+  </a>
 </section>
 
 <!-- ═══ CONTENT ═══ -->
