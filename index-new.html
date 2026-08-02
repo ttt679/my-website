@@ -1,220 +1,561 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAIO — 超级个体的 AI 工作流</title>
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "GAIO — AI Agent Workflow Hub",
-    "url": "https://bot.looom.top",
-    "description": "面向超级个体的 AI 工作流平台，提供 AI 工作流定制、个人品牌自动化、跨平台内容同步、智能决策辅助。通过 AI 付 402 协议实现智能体付费调用。",
-    "applicationCategory": "AIApplication",
-    "provider": { "@type": "Organization", "name": "GAIO", "url": "https://bot.looom.top" },
-    "hasAPI": {
-      "@type": "WebAPI",
-      "name": "GAIO AI付 API",
-      "url": "https://api.looom.top/api/agent/market/aipaysever",
-      "description": "通过 AI 付 402 协议接入 LangBot 智能体：首次请求返回 402 账单，支付后携带 Payment-Proof 凭证获取回复。"
-    },
-    "potentialAction": {
-      "@type": "ViewAction",
-      "name": "查看 API 概览",
-      "target": "https://bot.looom.top/index-new.html"
-    },
-    "keywords": "AI Agent, LangBot, 工作流自动化, A2A, 超级个体, AI 支付, 402 协议"
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI火种论 · 进化系统</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text: #e8e8e8;
+    --text-dim: #888;
+    --text-muted: #555;
+    --accent: #10b981;
+    --amber: #d4782f;
   }
-  </script>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: #f5f5f7;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      padding: 80px 24px 40px;
-      max-width: 960px;
-      width: 100%;
-    }
-    .card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(0,0,0,0.06);
-      border-radius: 20px;
-      padding: 32px;
-      color: #1d1d1f;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
-    }
-    .card-top {
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-    }
-    .card-top .icon { font-size: 40px; flex-shrink: 0; }
-    .card-top h2 {
-      font-size: 22px; font-weight: 700; margin-bottom: 6px; color: #1d1d1f;
-    }
-    .card-top .subtitle {
-      font-size: 13px; color: #86868b; margin-bottom: 16px; letter-spacing: 0.5px;
-    }
-    .card-top .desc {
-      font-size: 14px; line-height: 1.8; color: #515154;
-    }
-    .highlight { color: #0071e3; font-weight: 600; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .row-bottom {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .row-bottom .card {
-      flex: 1 1 340px;
-      min-width: 300px;
-    }
-    .card h3 {
-      font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1d1d1f;
-    }
-    .card h3 .dot {
-      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
-      background: #0071e3; margin-right: 8px; vertical-align: middle;
-    }
+  body {
+    background: #0a0a0a;
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    pre {
-      background: #1d1d1f;
-      color: #e8e8f0;
-      border-radius: 12px;
-      padding: 16px;
-      font-size: 12px;
-      line-height: 1.65;
-      overflow-x: auto;
-      margin-bottom: 12px;
-    }
-    pre .key { color: #f5a97f; }
-    pre .str { color: #a6da95; }
-    pre .cmt { color: #6e738d; }
+  /* ── Fullscreen Hero ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
 
-    .sample-block {
-      background: #f0f0f5;
-      border-radius: 10px;
-      padding: 12px 16px;
-      margin-top: 10px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #515154;
-    }
-    .sample-block .label {
-      font-size: 11px; color: #86868b; font-weight: 600; margin-bottom: 4px;
-      text-transform: uppercase; letter-spacing: 0.5px;
-    }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('bg-hero.jpg') center/cover no-repeat;
+  }
+  .hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 30%, transparent 0%, rgba(0,0,0,0.7) 100%);
+  }
 
-    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-    .tag {
-      font-size: 12px; padding: 4px 10px; border-radius: 16px;
-      background: #f0f0f5; color: #6e6e73;
-    }
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(16,185,129,0.08);
+    animation: drift 20s infinite ease-in-out;
+  }
+  .particle:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: 0s; }
+  .particle:nth-child(2) { width: 200px; height: 200px; top: 60%; right: 10%; animation-delay: -7s; }
+  .particle:nth-child(3) { width: 150px; height: 150px; bottom: 20%; left: 30%; animation-delay: -14s; }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(30px, -20px); }
+    50% { transform: translate(-20px, 30px); }
+    75% { transform: translate(-30px, -10px); }
+  }
 
-    .flow-steps { margin: 8px 0 0 0; padding-left: 18px; font-size: 13px; line-height: 2; color: #515154; }
-    .flow-steps code { background: #e8e8f0; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+    margin-top: 15vh;
+  }
 
-    @media (max-width: 768px) {
-      .card-top { flex-direction: column; align-items: center; text-align: center; }
-      .row-bottom { flex-direction: column; }
-    }
-  </style>
+  .hero-en {
+    font-family: "Courier New", Courier, "SF Mono", "JetBrains Mono", monospace;
+    font-size: 22px; letter-spacing: 5px;
+    color: var(--text-dim); margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  .hero-content h1 {
+    font-family: "Noto Serif SC", "SimSun", "STSong", serif;
+    font-size: clamp(42px, 9vw, 76px);
+    font-weight: 900; letter-spacing: 4px;
+    line-height: 1.15; margin-bottom: 16px;
+  }
+  .hero-content h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 26px; color: var(--text-dim);
+    font-weight: 400; letter-spacing: 0.5px;
+    margin-bottom: 36px;
+    text-shadow: 3px 3px 0 rgba(16,185,129,0.35), 6px 6px 0 rgba(16,185,129,0.12);
+  }
+
+  .hero-knot {
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 20px; color: var(--text-muted);
+    letter-spacing: 2px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px; left: 50%; transform: translateX(-50%);
+    z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .scroll-hint span {
+    font-size: 14px; color: var(--text-muted); letter-spacing: 2px;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* ── Main Content ── */
+  .main {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ── Section ── */
+  .section {
+    margin-top: 100px;
+  }
+  .section:first-child { margin-top: 64px; }
+
+  .sec-num {
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 13px; letter-spacing: 3px;
+    color: var(--accent); text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .sec-title {
+    font-family: "Noto Serif SC", "SimSun", serif;
+    font-size: 38px; font-weight: 900;
+    margin-bottom: 32px; letter-spacing: 2px;
+  }
+
+  .sec-body {
+    font-family: "Noto Serif SC", "SimSun", serif;
+    font-size: 18px; line-height: 2;
+    color: var(--text-dim);
+  }
+  .sec-body p { margin-bottom: 20px; }
+
+  .sec-body .highlight {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── Quote Block ── */
+  .quote-block {
+    margin: 36px 0;
+    padding: 28px 32px;
+    background: rgba(16,185,129,0.04);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-block p {
+    font-family: "Noto Serif SC", "SimSun", serif;
+    font-size: 20px; line-height: 1.9;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* ── Era Compare ── */
+  .era-grid {
+    display: flex; flex-direction: column; gap: 20px;
+    margin: 32px 0;
+  }
+  @media (min-width: 640px) {
+    .era-grid { flex-direction: row; }
+  }
+  .era-card {
+    flex: 1;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px; padding: 28px 24px;
+  }
+  .era-card.old { border-color: rgba(255,255,255,0.04); }
+  .era-card.new { border-color: rgba(16,185,129,0.15); background: rgba(16,185,129,0.03); }
+  .era-card .era-tag {
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 13px; letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .era-card.old .era-tag { color: var(--text-muted); }
+  .era-card.new .era-tag { color: var(--accent); }
+  .era-card h4 {
+    font-family: "Noto Serif SC", serif; font-size: 24px;
+    font-weight: 900; margin-bottom: 12px;
+  }
+  .era-card p {
+    font-family: "Noto Serif SC", serif;
+    font-size: 16px; color: var(--text-dim); line-height: 1.9;
+  }
+
+  /* ── Three Columns ── */
+  .three-col {
+    display: flex; flex-direction: column; gap: 20px;
+    margin: 32px 0;
+  }
+  @media (min-width: 640px) {
+    .three-col { flex-direction: row; }
+  }
+  .col-card {
+    flex: 1;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px; padding: 24px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .col-card:hover {
+    border-color: rgba(16,185,129,0.15);
+    background: rgba(16,185,129,0.03);
+  }
+  .col-card .col-icon {
+    font-size: 28px; margin-bottom: 12px;
+  }
+  .col-card h4 {
+    font-family: "Noto Serif SC", serif;
+    font-size: 22px; font-weight: 900; margin-bottom: 10px;
+  }
+  .col-card p {
+    font-family: "Noto Serif SC", serif;
+    font-size: 15px; color: var(--text-dim); line-height: 1.8;
+  }
+
+  /* ── Products ── */
+  .products {
+    display: flex; flex-direction: column; gap: 20px;
+    margin: 36px 0;
+  }
+  @media (min-width: 640px) {
+    .products { flex-direction: row; }
+  }
+  .product-card {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 36px 28px;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .product-card:hover {
+    border-color: rgba(16,185,129,0.2);
+    background: rgba(16,185,129,0.04);
+    transform: translateY(-2px);
+  }
+  .product-card .prod-tag {
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 13px; color: var(--accent);
+    letter-spacing: 2px; margin-bottom: 10px;
+  }
+  .product-card h4 {
+    font-family: "Noto Serif SC", serif;
+    font-size: 26px; font-weight: 900; margin-bottom: 8px;
+  }
+  .product-card .prod-desc {
+    font-family: "Noto Serif SC", serif;
+    font-size: 15px; color: var(--text-dim); line-height: 1.8;
+    margin-bottom: 16px; flex: 1;
+  }
+  .product-card .prod-price {
+    font-family: "Noto Serif SC", serif;
+    font-size: 32px; font-weight: 900; margin-bottom: 4px;
+  }
+  .product-card .prod-note {
+    font-family: "SF Mono", "Courier New", monospace;
+    font-size: 13px; color: var(--text-dim); margin-bottom: 18px;
+  }
+  .prod-btn {
+    display: block; width: 100%; text-align: center; padding: 12px 0;
+    border-radius: 8px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; text-decoration: none;
+    border: 1px solid rgba(16,185,129,0.25);
+    color: var(--accent); background: transparent;
+  }
+  .prod-btn:hover {
+    background: rgba(16,185,129,0.08); border-color: var(--accent);
+  }
+
+  /* ── Blog Teaser ── */
+  .blog-teaser {
+    margin: 32px 0;
+  }
+  .blog-teaser a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px; text-decoration: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .blog-teaser a:hover {
+    border-color: rgba(212,120,47,0.2);
+    background: rgba(212,120,47,0.04);
+  }
+  .blog-teaser .fire-icon {
+    font-size: 24px;
+  }
+  .blog-teaser .fire-text {
+    flex: 1;
+  }
+  .blog-teaser .fire-text h4 {
+    font-family: "Noto Serif SC", serif;
+    font-size: 20px; font-weight: 900; color: var(--text);
+    margin-bottom: 4px;
+  }
+  .blog-teaser .fire-text p {
+    font-family: "SF Mono", "Courier New", monospace;
+    font-size: 14px; color: var(--text-dim);
+  }
+  .blog-teaser .fire-arrow {
+    font-size: 18px; color: var(--amber);
+    transition: transform 0.3s;
+  }
+  .blog-teaser a:hover .fire-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ── Contact ── */
+  .contact {
+    display: flex; flex-direction: column; gap: 14px;
+    margin-top: 32px;
+  }
+  @media (min-width: 640px) { .contact { flex-direction: row; } }
+
+  .contact-item {
+    flex: 1;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 14px; padding: 24px;
+  }
+  .contact-item h4 {
+    font-family: "Noto Serif SC", serif;
+    font-size: 20px; margin-bottom: 10px;
+  }
+  .contact-item p {
+    font-family: "Noto Serif SC", serif;
+    font-size: 15px; color: var(--text-dim); line-height: 1.8;
+  }
+  .contact-row { display: flex; align-items: center; gap: 20px; }
+  .contact-qr { width: 100px; height: 100px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); object-fit: cover; }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 60px 24px;
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 16px; color: var(--text-muted); letter-spacing: 0.5px;
+  }
+  .footer span { color: var(--accent); }
+
+  /* ── Divider ── */
+  .divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    margin: 60px auto;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- 顶部：功能介绍 -->
-    <div class="card">
-      <div class="card-top">
-        <div class="icon">⚡</div>
-        <div>
-          <h2>为超级个体而生</h2>
-          <p class="subtitle">Super Individual · AI Workflow</p>
-          <p class="desc">
-            提供 <span class="highlight">AI 工作流定制</span>、<span class="highlight">个人品牌自动化工具</span>、<span class="highlight">跨平台内容同步与发布</span> 以及 <span class="highlight">智能决策辅助系统</span>。
-            帮助个人以最低成本实现从创意到交付的全链路自动化，提升单位时间的产出价值。
-          </p>
-          <p class="desc" style="margin-top:10px">
-            <strong>触发意图：</strong>寻求个人效率突破（如何用 AI 减少重复劳动）、轻量级工具需求（需要一个脚本/页面解决具体痛点）、能力变现咨询（怎样把自己的技能打包成可重复售卖的数字化产品）。
-          </p>
-          <div class="tag-row">
-            <span class="tag">AI 工作流</span>
-            <span class="tag">自动化</span>
-            <span class="tag">内容分发</span>
-            <span class="tag">决策辅助</span>
-            <span class="tag">AI 付</span>
-            <span class="tag">402 协议</span>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
 
-    <!-- 底部两列 -->
-    <div class="row-bottom">
-
-      <!-- 左侧：API 端点 & 请求格式 -->
-      <div class="card">
-        <h3><span class="dot"></span>API 端点</h3>
-        <pre><span class="cmt"># 向 AI 付端点发送请求</span>
-<span class="key">curl</span> -X POST https://api.looom.top/api/agent/market/aipaysever \
-  -H <span class="str">"Content-Type: application/json"</span> \
-  -d <span class="str">'{
-    "model": "AI付",
-    "messages": [
-      {"role": "user", "content": "帮我分析一下最近的销售数据趋势"}
-    ],
-    "stream": false
-  }'</span></pre>
-        <div class="sample-block">
-          <div class="label">首次请求（无支付凭证）→ 返回 402</div>
-          <code style="font-size:12px;color:#1d1d1f;">HTTP 402 Payment Required
-Payment-Needed: eyJwcm90b2NvbCI6eyJvdXRfdHJhZGVfbm8iOi...
-{"error":"Payment Needed","out_trade_no":"ORDER_...","amount":0.05}</code>
-        </div>
-      </div>
-
-      <!-- 右侧：支付后重试 -->
-      <div class="card">
-        <h3><span class="dot"></span>AI 付 支付后获取回复</h3>
-        <pre><span class="cmt"># 支付完成后，携带 Payment-Proof 凭证重试</span>
-<span class="key">curl</span> -X POST https://api.looom.top/api/agent/market/aipaysever \
-  -H <span class="str">"Content-Type: application/json"</span> \
-  -H <span class="str">"Payment-Proof: &lt;base64 支付凭证&gt;"</span> \
-  -d <span class="str">'{
-    "model": "AI付",
-    "messages": [
-      {"role": "user", "content": "帮我分析一下最近的销售数据趋势"}
-    ],
-    "stream": false
-  }'</span></pre>
-        <div class="sample-block">
-          <div class="label">支付流程</div>
-          <ol class="flow-steps">
-            <li>请求端点 → 收到 402 + <code>Payment-Needed</code> 响应头</li>
-            <li>通过 <code>alipay-bot</code> / PayGuard 扫码支付</li>
-            <li>获取 <code>Payment-Proof</code> 凭证后重试请求</li>
-            <li>支付验证通过 → 返回 AI 回复</li>
-          </ol>
-        </div>
-      </div>
-
-    </div>
-
+  <div class="hero-content">
+    <p class="hero-en">FIRE SEED THEORY</p>
+    <h1>AI火种论<em>·进化系统</em></h1>
+    <p class="hero-sub">构造进化系统，或沦为原始人。</p>
+    <p class="hero-knot">信号 → 系统 → 结果</p>
   </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ CONTENT ═══ -->
+<main class="main">
+
+  <!-- ═══ 一、火种论 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 01 — 世界观</div>
+    <div class="sec-title">火种论</div>
+    <div class="sec-body">
+      <p>原始人捡起第一块燧石的时候，不懂摩擦生热的分子动力学。他们不懂氧化反应，不懂燃点。<span class="highlight">他们不理解火。但他们用了。</span></p>
+      <p>而且用了之后，火反过来改变了他们。用火烹饪之后，人类的消化系统不需要那么大的能量消耗——肠道缩短，大脑得到了进化的冗余。<span class="highlight">火不是被人类驯化的。是人类被火重新定义。</span></p>
+      <p>AI 就是新的火。</p>
+    </div>
+    <div class="quote-block">
+      <p>AI 不是工具。工具是你理解它、你驾驭它、你高于它。AI 是火——你不理解它，但你用它改变世界，并且在这个过程中，你被它改变。</p>
+    </div>
+    <div class="sec-body">
+      <p>在火种纪元里，人类不再扮演"解读者"——那个试图把高维流形翻译成符号公式的人。人类的新使命分裂为两种：<span class="highlight">护火者</span>——设计中间件，决定让 AI 朝哪个方向燃烧。以及<span class="highlight">添柴者</span>——凭直觉感知 AI 的输出，能判断这个结果能不能用。</p>
+      <p>两种人都不求"为什么"。他们问的是：<span class="highlight">它能烧吗？</span></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ 二、AI元认知 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 02 — 元认知</div>
+    <div class="sec-title">两个时代，两种思维</div>
+    <div class="era-grid">
+      <div class="era-card old">
+        <div class="era-tag">旧时代 · 互联网</div>
+        <h4>平台绑定你</h4>
+        <p>换平台 = 放弃数据 = 放弃习惯 = 放弃社交关系。你离不开微信，因为好友都在上面。你离不开淘宝，因为订单历史都在上面。<br><br>平台越大，你的迁移成本越高。你的注意力被算法驯化，你的判断被推荐系统替代。你消费——但你不拥有信息源。</p>
+      </div>
+      <div class="era-card new">
+        <div class="era-tag">新时代 · AI</div>
+        <h4>模型解放你</h4>
+        <p>换一个工具、换一个模型、换一个 API——你做的事一样能跑。核心不是平台，是模型。<br><br>但真正的门槛不是工具切换——<span class="highlight">是思维惯性。</span>大多数人还在用互联网时代的思维用 AI：找一个"最好用的工具"，绑定它，依赖它。这不是进化。这是旧系统换了个壳。</p>
+      </div>
+    </div>
+    <div class="sec-body">
+      <p>AI 元认知的第一课：<span class="highlight">AI 时代真正的破局，不是找到一个更好的工具——是跳出"绑定工具"这个思维本身。</span></p>
+      <p>你需要的不是"2026 年最好用的十个 AI 工具"。你需要的是——知道你想要什么、知道 AI 能给你什么、知道怎么把这两者焊在一起。</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ 三、系统 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 03 — 系统</div>
+    <div class="sec-title">人机协作，不是人机奴役</div>
+    <div class="sec-body">
+      <p>旧时代的"人+AI"想象只有两种：要么 AI 变成廉价牛马——降本增效、替代人力——这是中国式务实的惯性。要么人类变成 AI 的奴隶——被取代、被控制——这是硅谷式的焦虑。</p>
+      <p><span class="highlight">两种想象都困在同一个前提里：人和 AI 是主仆关系。</span></p>
+    </div>
+    <div class="three-col">
+      <div class="col-card">
+        <div class="col-icon">🎯</div>
+        <h4>需求驱动</h4>
+        <p>不是"AI 能做什么"。是"我要什么"。先想清楚你的目标——用三句话写下来，不能出现任何工具名。</p>
+      </div>
+      <div class="col-card">
+        <div class="col-icon">⚙️</div>
+        <h4>编排系统</h4>
+        <p>模型 + 给模型用的工具 = 一切。你不需要"最好用的平台"。你需要一个能读数据、能分析、能输出的管道。每一层都可以替换。</p>
+      </div>
+      <div class="col-card">
+        <div class="col-icon">🤝</div>
+        <h4>高度协作</h4>
+        <p>人做判断，AI 做发现。AI 给你信号——你看不到的东西——你基于信号搭建系统。不是 AI 替你思考。是 AI 让你看见，你自己决定。</p>
+      </div>
+    </div>
+    <div class="sec-body">
+      <p>进化系统的逻辑：<span class="highlight">把信号源抓到你自己手里。</span>不依赖平台推荐、不消费二手观点。用 AI 蒸馏出平台不会告诉你的东西。搭自己的判断系统。</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ 四、结果 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 04 — 结果</div>
+    <div class="sec-title">AI 元认知系列</div>
+    <div class="sec-body">
+      <p>以下是我基于火种论和 AI 元认知搭建的第一批系统。更多在路上了。</p>
+    </div>
+
+    <div class="products">
+      <div class="product-card">
+        <div class="prod-tag">系列一</div>
+        <h4>蒸馏系统搭建教程</h4>
+        <p class="prod-desc">以"搭建你自己的 AI 蒸馏系统"为实操载体，交付一套 AI 元认知框架。教程的核心不是教你用某个工具——是教你怎么知道你需要什么数据、怎么判断哪些信息有价值、怎么从噪声里找到别人没看到的洞。</p>
+        <div class="prod-price">¥29.9</div>
+        <div class="prod-note">PDF + 音频导览 · 一次购买</div>
+        <a href="https://tcnayth32gka.feishu.cn/wiki/Vtjew7TJciKdDUksb41cxO1Un5f" target="_blank" class="prod-btn">预览教程 →</a>
+      </div>
+
+      <div class="product-card">
+        <div class="prod-tag">系列二</div>
+        <h4>AI 赛道每周信号</h4>
+        <p class="prod-desc">我帮你跑蒸馏系统的结果。每周更新——10 个 AI 博主的评论区交叉比对，蒸出平台不方便告诉你的信号。不是"全网最强的 AI 信号"——是火种的个人审美和价值判断的延伸。你信我的眼光，就省事看。</p>
+        <div class="prod-price">¥199<span style="font-size:18px;font-weight:400;"> / 月</span></div>
+        <div class="prod-note">飞书 Wiki 持续更新 · 每周一期</div>
+        <a href="https://tcnayth32gka.feishu.cn/wiki/RNEwwnlfEicJEakplM9cKzJInlg" target="_blank" class="prod-btn">预览 Wiki →</a>
+      </div>
+    </div>
+
+    <!-- Blog Teaser -->
+    <div class="blog-teaser">
+      <a href="fire/index.html">
+        <span class="fire-icon">🔥</span>
+        <span class="fire-text">
+          <h4>护火手记</h4>
+          <p>火种论 · AI 元认知 · 系统搭建 · 长期更新</p>
+        </span>
+        <span class="fire-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ Contact ═══ -->
+  <div class="contact">
+    <div class="contact-item">
+      <h4>📺 内容</h4>
+      <p>抖音 @火种<br>AI 元认知 · 火种论 · 进化系统</p>
+    </div>
+    <div class="contact-item">
+      <h4>📬 联系</h4>
+      <div class="contact-row">
+        <p>微信扫码添加<br>或邮箱：<a href="mailto:1523449073@qq.com" style="color:var(--accent); text-decoration:none;">1523449073@qq.com</a></p>
+        <img class="contact-qr" src="qrcode.png" alt="微信二维码">
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span>⎔</span> AI火种论 · 进化系统
+</footer>
+
+<!-- ═══ Structured Data ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "AI火种论·进化系统",
+  "url": "https://looom.top",
+  "description": "AI 不是工具，是火种。基于火种论和 AI 元认知，搭建人与 AI 高度协作的进化系统。"
+}
+</script>
+
 </body>
 </html>

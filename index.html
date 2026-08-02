@@ -3,9 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI原著民·进化系统</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&amp;display=swap" rel="stylesheet">
+<title>AI火种论 · 进化系统</title>
 <style>
+  /* ── 本地优先字体，避免每次拉取 Google Fonts ── */
+  @font-face {
+    font-family: 'Noto Serif SC';
+    src: local('Noto Serif SC'), local('Source Han Serif SC');
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Noto Serif SC';
+    src: local('Noto Serif SC'), local('Source Han Serif SC');
+    font-weight: 900;
+    font-display: swap;
+  }
+
   :root {
     --text: #e8e8e8;
     --text-dim: #888;
@@ -19,8 +32,8 @@
   body {
     background: #0a0a0a;
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-    line-height: 1.65;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -37,12 +50,10 @@
     overflow: hidden;
   }
 
-  /* Background — bio-evolution image with dark overlay for text readability */
   .hero-bg {
     position: absolute;
     inset: 0;
-    background:
-      url('bg-hero.jpg') center/cover no-repeat;
+    background: url('bg-hero.jpg') center/cover no-repeat;
   }
   .hero-bg::before {
     content: "";
@@ -57,7 +68,6 @@
     background: radial-gradient(ellipse 70% 60% at 50% 30%, transparent 0%, rgba(0,0,0,0.7) 100%);
   }
 
-  /* Floating particles — pure CSS circles for atmosphere */
   .particle {
     position: absolute;
     border-radius: 50%;
@@ -74,27 +84,26 @@
     75% { transform: translate(-30px, -10px); }
   }
 
-  /* Hero content — positioned upper-center to stay in clean image area */
   .hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
     padding: 0 24px;
-    margin-top: 18vh;
+    margin-top: 15vh;
   }
 
   .hero-en {
     font-family: "Courier New", Courier, "SF Mono", "JetBrains Mono", monospace;
-    font-size: 24px; letter-spacing: 6px;
-    color: var(--text-dim); margin-bottom: 12px;
+    font-size: 22px; letter-spacing: 5px;
+    color: var(--text-dim); margin-bottom: 10px;
     font-weight: 400;
   }
 
   .hero-content h1 {
-    font-family: "Noto Serif SC", "SimSun", "STSong", serif;
-    font-size: clamp(48px, 10vw, 84px);
-    font-weight: 900; letter-spacing: 6px;
-    line-height: 1.15; margin-bottom: 20px;
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: clamp(42px, 9vw, 76px);
+    font-weight: 900; letter-spacing: 4px;
+    line-height: 1.15; margin-bottom: 16px;
   }
   .hero-content h1 em {
     font-style: normal;
@@ -104,21 +113,18 @@
   }
 
   .hero-sub {
-    font-size: 30px; color: var(--text-dim);
+    font-size: 26px; color: var(--text-dim);
     font-weight: 400; letter-spacing: 0.5px;
-    margin-bottom: 48px;
-    text-shadow:
-      3px 3px 0 rgba(16,185,129,0.35),
-      6px 6px 0 rgba(16,185,129,0.12);
+    margin-bottom: 36px;
+    text-shadow: 3px 3px 0 rgba(16,185,129,0.35), 6px 6px 0 rgba(16,185,129,0.12);
   }
 
   .hero-knot {
     font-family: "SF Mono", "JetBrains Mono", monospace;
-    font-size: 21px; color: var(--text-muted);
+    font-size: 20px; color: var(--text-muted);
     letter-spacing: 2px;
   }
 
-  /* Scroll hint */
   .scroll-hint {
     position: absolute;
     bottom: 32px; left: 50%; transform: translateX(-50%);
@@ -126,7 +132,7 @@
     display: flex; flex-direction: column; align-items: center; gap: 8px;
   }
   .scroll-hint span {
-    font-size: 15px; color: var(--text-muted); letter-spacing: 2px;
+    font-size: 14px; color: var(--text-muted); letter-spacing: 2px;
   }
   .scroll-line {
     width: 1px; height: 40px;
@@ -138,296 +144,255 @@
     50% { opacity: 1; }
   }
 
-  /* ── 护火手记入口 ── */
-  .fire-entry {
-    position: absolute;
-    bottom: 5vh;
-    right: 5vw;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-    text-decoration: none;
-    font-family: "SF Mono", "JetBrains Mono", monospace;
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.25);
-    transition: color 0.35s ease;
-  }
-  .fire-entry .fire-line {
-    width: 100%;
-    height: 2px;
-    background: rgba(212,120,47,0.3);
-    transition: background 0.35s ease;
-  }
-  .fire-entry .fire-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-  }
-  .fire-entry .fire-arrow {
-    font-size: 0.85em;
-    opacity: 0.4;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
-  .fire-entry:hover {
-    color: var(--amber);
-  }
-  .fire-entry:hover .fire-line {
-    background: var(--amber);
-  }
-  .fire-entry:hover .fire-arrow {
-    opacity: 1;
-    transform: translateX(2px);
-  }
-
-  /* ── Content below fold ── */
+  /* ── Main Content ── */
   .main {
     position: relative;
     z-index: 2;
-    max-width: 1020px;
+    max-width: 860px;
     margin: 0 auto;
     padding: 0 32px 80px;
   }
 
-  /* Section label */
-  .sec-label {
+  /* ── Section ── */
+  .section {
+    margin-top: 100px;
+  }
+  .section:first-child { margin-top: 64px; }
+
+  .sec-num {
     font-family: "SF Mono", "JetBrains Mono", monospace;
-    font-size: 15px; letter-spacing: 3px;
+    font-size: 13px; letter-spacing: 3px;
     color: var(--accent); text-transform: uppercase;
-    text-align: center; margin-bottom: 48px;
+    margin-bottom: 12px;
   }
 
-  /* Cards — glass morphism */
-  .cards {
+  .sec-title {
+    font-family: "Noto Serif SC", "SimSun", serif;
+    font-size: 38px; font-weight: 900;
+    margin-bottom: 32px; letter-spacing: 2px;
+  }
+
+  .sec-body {
+    font-family: "Noto Serif SC", "SimSun", serif;
+    font-size: 18px; line-height: 2;
+    color: var(--text-dim);
+  }
+  .sec-body p { margin-bottom: 20px; }
+
+  .sec-body .highlight {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── Quote Block ── */
+  .quote-block {
+    margin: 36px 0;
+    padding: 28px 32px;
+    background: rgba(16,185,129,0.04);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-block p {
+    font-family: "Noto Serif SC", "SimSun", serif;
+    font-size: 20px; line-height: 1.9;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* ── Era Compare ── */
+  .era-grid {
     display: flex; flex-direction: column; gap: 20px;
+    margin: 32px 0;
   }
-  @media (min-width: 768px) {
-    .cards { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
+  @media (min-width: 640px) {
+    .era-grid { flex-direction: row; }
+  }
+  .era-card {
+    flex: 1;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px; padding: 28px 24px;
+  }
+  .era-card.old { border-color: rgba(255,255,255,0.04); }
+  .era-card.new { border-color: rgba(16,185,129,0.15); background: rgba(16,185,129,0.03); }
+  .era-card .era-tag {
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 13px; letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .era-card.old .era-tag { color: var(--text-muted); }
+  .era-card.new .era-tag { color: var(--accent); }
+  .era-card h4 {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif; font-size: 24px;
+    font-weight: 900; margin-bottom: 12px;
+  }
+  .era-card p {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 16px; color: var(--text-dim); line-height: 1.9;
   }
 
-  .card {
+  /* ── Three Columns ── */
+  .three-col {
+    display: flex; flex-direction: column; gap: 20px;
+    margin: 32px 0;
+  }
+  @media (min-width: 640px) {
+    .three-col { flex-direction: row; }
+  }
+  .col-card {
+    flex: 1;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px; padding: 24px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .col-card:hover {
+    border-color: rgba(16,185,129,0.15);
+    background: rgba(16,185,129,0.03);
+  }
+  .col-card .col-icon {
+    font-size: 28px; margin-bottom: 12px;
+  }
+  .col-card h4 {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 22px; font-weight: 900; margin-bottom: 10px;
+  }
+  .col-card p {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 15px; color: var(--text-dim); line-height: 1.8;
+  }
+
+  /* ── Products ── */
+  .products {
+    display: flex; flex-direction: column; gap: 20px;
+    margin: 36px 0;
+  }
+  @media (min-width: 640px) {
+    .products { flex-direction: row; }
+  }
+  .product-card {
+    flex: 1;
     background: rgba(255,255,255,0.03);
     backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 36px 28px;
-    display: flex; flex-direction: column;
+    border-radius: 16px; padding: 36px 28px;
     transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    display: flex; flex-direction: column;
   }
-  .card:hover {
+  .product-card:hover {
     border-color: rgba(16,185,129,0.2);
     background: rgba(16,185,129,0.04);
     transform: translateY(-2px);
   }
-
-  .card-icon {
-    width: 36px; height: 36px; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px; margin-bottom: 14px;
-    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.15);
+  .product-card .prod-tag {
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 13px; color: var(--accent);
+    letter-spacing: 2px; margin-bottom: 10px;
   }
-
-  .card h3 { font-family: "Noto Serif SC", serif; font-size: 24px; font-weight: 900; margin-bottom: 6px; }
-  .card .desc { font-family: "SF Mono", "Courier New", "Consolas", monospace; font-size: 16px; color: var(--text-dim); margin-bottom: 14px; line-height: 1.7; letter-spacing: -0.3px; }
-
-  .card-price { font-family: "Noto Serif SC", serif; font-size: 36px; font-weight: 900; margin-bottom: 2px; }
-  .card-price .unit { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 20px; font-weight: 500; color: var(--text-dim); }
-  .card-price-note { font-family: "SF Mono", "Courier New", "Consolas", monospace; font-size: 14px; color: var(--text-dim); margin-bottom: 10px; }
-
-  .card-delivery {
-    font-family: "SF Mono", "Courier New", "Consolas", monospace;
-    font-size: 16px; color: var(--text-dim); margin-bottom: 12px;
-    padding: 6px 10px; background: rgba(255,255,255,0.015); border-radius: 6px;
-    display: flex; align-items: center; gap: 6px;
+  .product-card h4 {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 26px; font-weight: 900; margin-bottom: 8px;
   }
-
-  .card-features { list-style: none; font-family: "SF Mono", "Courier New", "Consolas", monospace; font-size: 15px; color: var(--text-dim); margin-bottom: 16px; flex: 1; }
-  .card-features li { padding: 3px 0 3px 14px; position: relative; }
-  .card-features li::before { content: "+"; position: absolute; left: 0; color: var(--accent); font-size: 15px; font-weight: 700; }
-
-  .card-btn {
-    display: block; width: 100%; text-align: center; padding: 12px 0;
-    border-radius: 8px; font-size: 20px; font-weight: 600;
-    cursor: pointer; transition: all 0.2s; text-decoration: none;
-    border: 1px solid transparent; font-family: inherit;
+  .product-card .prod-desc {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 15px; color: var(--text-dim); line-height: 1.8;
+    margin-bottom: 16px; flex: 1;
   }
-  .btn-fill { background: var(--accent); color: #000; border-color: var(--accent); }
-  .btn-fill:hover { background: #34d399; }
-  .btn-stroke { background: transparent; color: var(--accent); border-color: rgba(16,185,129,0.25); }
-  .btn-stroke:hover { background: rgba(16,185,129,0.08); border-color: var(--accent); }
-  .btn-muted { background: transparent; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.06); cursor: not-allowed; }
-
-  .card-highlight {
-    padding: 10px 12px; background: rgba(16,185,129,0.06);
-    border: 1px solid rgba(16,185,129,0.12); border-radius: 8px;
-    margin-bottom: 12px;
+  .product-card .prod-price {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 32px; font-weight: 900; margin-bottom: 4px;
   }
-  .card-tier {
+  .product-card .prod-note {
     font-family: "SF Mono", "Courier New", monospace;
-    font-size: 15px; font-weight: 600; color: var(--accent);
-    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+    font-size: 13px; color: var(--text-dim); margin-bottom: 18px;
+  }
+  .prod-btn {
+    display: block; width: 100%; text-align: center; padding: 12px 0;
+    border-radius: 8px; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; text-decoration: none;
+    border: 1px solid rgba(16,185,129,0.25);
+    color: var(--accent); background: transparent;
+  }
+  .prod-btn:hover {
+    background: rgba(16,185,129,0.08); border-color: var(--accent);
   }
 
-  /* About */
-  .about {
-    margin-top: 80px;
+  /* ── Blog Teaser ── */
+  .blog-teaser {
+    margin: 32px 0;
+  }
+  .blog-teaser a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px; text-decoration: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .blog-teaser a:hover {
+    border-color: rgba(212,120,47,0.2);
+    background: rgba(212,120,47,0.04);
+  }
+  .blog-teaser .fire-icon {
+    font-size: 24px;
+  }
+  .blog-teaser .fire-text {
+    flex: 1;
+  }
+  .blog-teaser .fire-text h4 {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 20px; font-weight: 900; color: var(--text);
+    margin-bottom: 4px;
+  }
+  .blog-teaser .fire-text p {
+    font-family: "SF Mono", "Courier New", monospace;
+    font-size: 14px; color: var(--text-dim);
+  }
+  .blog-teaser .fire-arrow {
+    font-size: 18px; color: var(--amber);
+    transition: transform 0.3s;
+  }
+  .blog-teaser a:hover .fire-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ── Contact ── */
+  .contact {
     display: flex; flex-direction: column; gap: 14px;
+    margin-top: 32px;
   }
-  @media (min-width: 640px) { .about { flex-direction: row; } }
+  @media (min-width: 640px) { .contact { flex-direction: row; } }
 
-  .about-item {
+  .contact-item {
     flex: 1;
     background: rgba(255,255,255,0.02);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255,255,255,0.04);
     border-radius: 14px; padding: 24px;
   }
-  .about-item h4 { font-family: "Noto Serif SC", serif; font-size: 24px; margin-bottom: 10px; }
-  .about-item p { font-family: "SF Mono", "Courier New", "Consolas", monospace; font-size: 16px; color: var(--text-dim); line-height: 1.8; }
-
+  .contact-item h4 {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 20px; margin-bottom: 10px;
+  }
+  .contact-item p {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", "PingFang SC", "Microsoft YaHei", serif;
+    font-size: 15px; color: var(--text-dim); line-height: 1.8;
+  }
   .contact-row { display: flex; align-items: center; gap: 20px; }
-  .contact-info { flex: 1; }
-  .contact-qr { width: 100px; height: 100px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); object-fit: cover; transform: scale(1.12); }
-  .qr-wrap { overflow: hidden; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); }
-  .qr-wrap img { display: block; width: 120%; height: 120%; margin: -10%; }
+  .contact-qr { width: 100px; height: 100px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); object-fit: cover; }
 
   /* Footer */
   .footer {
     text-align: center; padding: 60px 24px;
     font-family: "SF Mono", "JetBrains Mono", monospace;
-    font-size: 17px; color: var(--text-muted); letter-spacing: 0.5px;
+    font-size: 16px; color: var(--text-muted); letter-spacing: 0.5px;
   }
   .footer span { color: var(--accent); }
 
-  /* Modal */
-  .modal-overlay {
-    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.85); backdrop-filter: blur(4px);
-    z-index: 999; justify-content: center; align-items: center; padding: 20px;
-  }
-  .modal-overlay.active { display: flex; }
-  .modal {
-    background: #141414; border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px; padding: 32px 28px;
-    max-width: 440px; width: 100%; position: relative;
-    max-height: 82vh; overflow-y: auto;
-  }
-  .modal-close {
-    position: absolute; top: 14px; right: 16px;
-    background: none; border: none; color: var(--text-dim);
-    font-size: 24px; cursor: pointer;
-  }
-  .modal-close:hover { color: var(--text); }
-  .modal h3 { font-size: 26px; margin-bottom: 4px; }
-  .modal-price { font-size: 36px; font-weight: 800; color: var(--accent); margin-bottom: 18px; }
-  .modal-block { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .modal-block:last-child { border: none; margin: 0; padding: 0; }
-  .modal-block h4 { font-size: 18px; color: var(--accent); margin-bottom: 8px; }
-  .modal-block p { font-size: 17px; color: var(--text-dim); margin-bottom: 6px; line-height: 1.6; }
-  .qr-ph {
-    width: 140px; height: 140px; border: 2px dashed rgba(255,255,255,0.08);
-    border-radius: 8px; display: flex; align-items: center; justify-content: center;
-    color: var(--text-muted); font-size: 17px; margin: 0 auto;
-  }
-  .qr-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center; }
-  .field { margin-bottom: 8px; }
-  .field input {
-    width: 100%; padding: 10px 12px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px; color: var(--text); font-size: 18px; font-family: inherit;
-  }
-  .field input:focus { border-color: var(--accent); outline: none; }
-  .field-hint { font-size: 15px; color: var(--accent); opacity: 0.6; margin-top: 3px; }
-
-  /* Access section */
-  .access-section { margin-top: 64px; }
-
-  .access-card {
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px; padding: 36px 32px;
-  }
-  .access-card h3 {
-    font-family: "Noto Serif SC", serif; font-size: 24px;
-    font-weight: 900; margin-bottom: 8px;
-  }
-  .access-card .access-desc {
-    font-family: "SF Mono", "Courier New", "Consolas", monospace;
-    font-size: 16px; color: var(--text-dim); margin-bottom: 28px;
-    line-height: 1.7;
-  }
-
-  .access-paths {
-    display: flex; flex-direction: column; gap: 16px;
-  }
-  @media (min-width: 640px) {
-    .access-paths { flex-direction: row; }
-  }
-
-  .access-path {
-    flex: 1;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px; padding: 24px;
-    display: flex; flex-direction: column;
-  }
-  .access-path .path-tag {
-    display: inline-block;
-    font-family: "SF Mono", "Courier New", monospace;
-    font-size: 13px; color: var(--accent);
-    letter-spacing: 1px; margin-bottom: 12px;
-  }
-  .access-path h4 {
-    font-family: "Noto Serif SC", serif;
-    font-size: 20px; font-weight: 900; margin-bottom: 8px;
-  }
-  .access-path p {
-    font-family: "SF Mono", "Courier New", "Consolas", monospace;
-    font-size: 14px; color: var(--text-dim); line-height: 1.8;
-    flex: 1; margin-bottom: 16px;
-  }
-  .access-btn {
-    display: block; width: 100%; text-align: center; padding: 10px 0;
-    border-radius: 8px; font-size: 16px; font-weight: 600;
-    cursor: pointer; font-family: inherit;
-    background: transparent; color: var(--accent);
-    border: 1px solid rgba(16,185,129,0.25);
-    transition: all 0.2s;
-  }
-  .access-btn:hover { background: rgba(16,185,129,0.08); border-color: var(--accent); }
-
-  /* Evidence / Blog section */
-  .evidence-section { margin-top: 64px; }
-  .evidence-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-  @media (min-width: 640px) { .evidence-grid { grid-template-columns: 1fr 1fr; } }
-
-  .evidence-card {
-    background: rgba(255,255,255,0.02);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.04);
-    border-radius: 12px; padding: 24px;
-    transition: border-color 0.3s, background 0.3s;
-    display: flex; flex-direction: column;
-  }
-  .evidence-card:hover {
-    border-color: rgba(16,185,129,0.15);
-    background: rgba(16,185,129,0.03);
-  }
-  .evidence-card .ev-date {
-    font-family: "SF Mono", "Courier New", monospace;
-    font-size: 13px; color: var(--accent); opacity: 0.7;
-    letter-spacing: 1px; margin-bottom: 6px;
-  }
-  .evidence-card h4 {
-    font-family: "Noto Serif SC", serif;
-    font-size: 20px; font-weight: 900; margin-bottom: 6px;
-  }
-  .evidence-card .ev-desc {
-    font-family: "SF Mono", "Courier New", "Consolas", monospace;
-    font-size: 14px; color: var(--text-dim); line-height: 1.6;
-    flex: 1;
+  /* ── Divider ── */
+  .divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    margin: 60px auto;
   }
 </style>
 </head>
@@ -441,189 +406,149 @@
   <div class="particle"></div>
 
   <div class="hero-content">
-    <p class="hero-en">AI · NATIVE</p>
-    <h1>AI原著民<em>·进化系统</em></h1>
+    <p class="hero-en">FIRE SEED THEORY</p>
+    <h1>AI火种论<em>·进化系统</em></h1>
     <p class="hero-sub">构造进化系统，或沦为原始人。</p>
-    <p class="hero-knot">信号 · 系统 · 结果</p>
+    <p class="hero-knot">信号 → 系统 → 结果</p>
   </div>
 
   <div class="scroll-hint">
     <span>SCROLL</span>
     <div class="scroll-line"></div>
   </div>
-
-  <a href="fire/index.html" class="fire-entry">
-    <span class="fire-line"></span>
-    <span class="fire-row">护火手记 · 第一封<span class="fire-arrow"> →</span></span>
-  </a>
 </section>
 
 <!-- ═══ CONTENT ═══ -->
 <main class="main">
 
-  <div class="sec-label">// — 我能帮你做什么</div>
-
-  <div class="cards">
-
-    <!-- Report -->
-    <div class="card">
-      <div class="card-icon">📊</div>
-      <h3>单次分析报告</h3>
-      <p class="desc">不确定赛道方向？先看一组真实数据。指定博主，24h 出报告。</p>
-      <div class="card-price">¥29<span class="unit">.9</span></div>
-      <div class="card-price-note">一次性 · 邮箱发送</div>
-      <div class="card-delivery">🔗 爱发电付款 → 回此页填订单号 → 收报告</div>
-      <ul class="card-features">
-        <li>高频词 + 需求信号分类</li>
-        <li>情绪分布 + 争议点标注</li>
-        <li>竞品提及 & 行动意愿</li>
-        <li>内容机会建议 ≥ 2 条</li>
-      </ul>
-      <a href="https://ifdian.net/a/ttt679" target="_blank" class="card-btn btn-fill">去爱发电付款 →</a>
-      <button class="card-btn btn-stroke" style="margin-top:12px;font-size:15px;" onclick="openModal('report')">已付款？填写信息 →</button>
+  <!-- ═══ 一、火种论 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 01 — 世界观</div>
+    <div class="sec-title">火种论</div>
+    <div class="sec-body">
+      <p>原始人捡起第一块燧石的时候，不懂摩擦生热的分子动力学。他们不懂氧化反应，不懂燃点。<span class="highlight">他们不理解火。但他们用了。</span></p>
+      <p>而且用了之后，火反过来改变了他们。用火烹饪之后，人类的消化系统不需要那么大的能量消耗——肠道缩短，大脑得到了进化的冗余。<span class="highlight">火不是被人类驯化的。是人类被火重新定义。</span></p>
+      <p>AI 就是新的火。</p>
     </div>
-
-    <!-- Custom MCP -->
-    <div class="card">
-      <div class="card-icon">🔧</div>
-      <h3>定制 MCP 搭建</h3>
-      <p class="desc">确定方向后，搭一套专属 MCP。持续跑、自动分析，变成信号系统。</p>
-      <div class="card-highlight">
-        <div class="card-tier">托管版</div>
-        <div class="card-price" style="font-size:30px;">¥599<span class="unit"> 首月</span></div>
-        <div class="card-price-note">次月 ¥199/月 · 含 API & 服务器</div>
-        <ul class="card-features" style="margin-bottom:0;">
-          <li>MCP 搭建 + 部署上云</li>
-          <li>API 费用我包，你零配置</li>
-          <li>48h 交付 + 持续维护</li>
-        </ul>
-      </div>
-      <div style="font-family:'SF Mono','Courier New',Consolas,monospace; font-size:16px; color:var(--text-dim); margin-bottom:14px; padding-left:10px; border-left:2px solid rgba(16,185,129,0.2);">
-        自托管 ¥299
-        <div style="font-size:14px; color:var(--text-muted); margin-top:6px; line-height:1.8;">
-          提供完整 MCP 配置文档<br>
-          你部署在自己服务器<br>
-          不含 API 费用 & 维护
-        </div>
-      </div>
-      <button class="card-btn btn-stroke" onclick="openModal('custom')">联系定制 →</button>
+    <div class="quote-block">
+      <p>AI 不是工具。工具是你理解它、你驾驭它、你高于它。AI 是火——你不理解它，但你用它改变世界，并且在这个过程中，你被它改变。</p>
     </div>
-
-    <!-- Weekly -->
-    <div class="card">
-      <div class="card-icon">📡</div>
-      <h3>AI 赛道每周信号</h3>
-      <p class="desc">不想自己搭？订阅每周信号推送。我帮你跑、帮你分析，直接看结论。</p>
-      <div class="card-price">¥49<span class="unit">/月</span></div>
-      <div class="card-price-note">每周一期 · 持续追踪</div>
-      <div class="card-delivery">🔗 爱发电订阅 → 每周自动收到</div>
-      <ul class="card-features">
-        <li>AI 编程 / 工具 / 自媒体</li>
-        <li>跨博主信号对比 & 趋势</li>
-        <li>每周选题建议 + 判断</li>
-      </ul>
-      <a href="https://ifdian.net/a/ttt679" target="_blank" class="card-btn btn-fill">去爱发电订阅 →</a>
-    </div>
-
-  </div>
-
-  <!-- AgentPay Access -->
-  <section class="access-section">
-    <div class="sec-label">// — 如何获取</div>
-    <div class="access-card">
-      <h3>AgentPay</h3>
-      <p class="access-desc">AI 原生的支付与交付协议。你的 Agent 直接调用 MCP 工具完成购买，无需跳转网页、不用扫码。</p>
-      <div class="access-paths">
-        <div class="access-path">
-          <span class="path-tag">// 路径 A</span>
-          <h4>AI 原生获取</h4>
-          <p>
-            给你的 Agent 配置 MCP 工具<br>
-            → 安装支付宝 Skill 或配套 Skill<br>
-            → Agent 自主调用、支付、获取结果<br>
-            <span style="color:var(--text-muted); font-size:13px;">全程零人工，真正的 AI 原生体验</span>
-          </p>
-          <button class="access-btn" onclick="openModal('agentpay-ai')">查看配置方式 →</button>
-        </div>
-        <div class="access-path">
-          <span class="path-tag">// 路径 B</span>
-          <h4>传统获取</h4>
-          <p>
-            爱发电付款 → 获取订单号<br>
-            → 回首页填表 → 48h 内收报告<br>
-            <span style="color:var(--text-muted); font-size:13px;">和单次分析报告一样的流程</span>
-          </p>
-          <a href="https://ifdian.net/a/ttt679" target="_blank" class="access-btn">去爱发电 →</a>
-        </div>
-      </div>
+    <div class="sec-body">
+      <p>在火种纪元里，人类不再扮演"解读者"——那个试图把高维流形翻译成符号公式的人。人类的新使命分裂为两种：<span class="highlight">护火者</span>——设计中间件，决定让 AI 朝哪个方向燃烧。以及<span class="highlight">添柴者</span>——凭直觉感知 AI 的输出，能判断这个结果能不能用。</p>
+      <p>两种人都不求"为什么"。他们问的是：<span class="highlight">它能烧吗？</span></p>
     </div>
   </section>
 
-  <!-- Evidence / Blog -->
-  <section class="evidence-section">
-    <div class="sec-label">// — 内容 & 产出</div>
-    <div class="evidence-grid">
+  <div class="divider"></div>
 
-      <div class="evidence-card">
-        <div class="ev-date">2026-06-07</div>
-        <h4>你好，AI 原生</h4>
-        <p class="ev-desc">站点创立宣言。AI 原生不是用 AI 做产品，而是让 AI 重新定义产品。</p>
+  <!-- ═══ 二、AI元认知 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 02 — 元认知</div>
+    <div class="sec-title">两个时代，两种思维</div>
+    <div class="era-grid">
+      <div class="era-card old">
+        <div class="era-tag">旧时代 · 互联网</div>
+        <h4>平台绑定你</h4>
+        <p>换平台 = 放弃数据 = 放弃习惯 = 放弃社交关系。你离不开微信，因为好友都在上面。你离不开淘宝，因为订单历史都在上面。<br><br>平台越大，你的迁移成本越高。你的注意力被算法驯化，你的判断被推荐系统替代。你消费——但你不拥有信息源。</p>
       </div>
-
-      <div class="evidence-card">
-        <div class="ev-date">2026-06</div>
-        <h4>A2A 支付协议深度解析</h4>
-        <p class="ev-desc">HTTP 402 状态码在 AI 支付场景中的技术原理。从协议层理解 AI 原生支付。</p>
+      <div class="era-card new">
+        <div class="era-tag">新时代 · AI</div>
+        <h4>模型解放你</h4>
+        <p>换一个工具、换一个模型、换一个 API——你做的事一样能跑。核心不是平台，是模型。<br><br>但真正的门槛不是工具切换——<span class="highlight">是思维惯性。</span>大多数人还在用互联网时代的思维用 AI：找一个"最好用的工具"，绑定它，依赖它。这不是进化。这是旧系统换了个壳。</p>
       </div>
-
-      <div class="evidence-card">
-        <div class="ev-date">2026-06</div>
-        <h4>AI Agent 接入支付宝 AI 收</h4>
-        <p class="ev-desc">让智能体真正"赚钱"的终极方案。Agent → MCP → 支付宝收款的完整链路。</p>
-      </div>
-
-      <div class="evidence-card">
-        <div class="ev-date">2026-06</div>
-        <h4>跨智能体协作</h4>
-        <p class="ev-desc">一种被忽视的 AI 原生范式。跨系统边界的价值协作，不是多智能体任务编排。</p>
-      </div>
-
-      <div class="evidence-card">
-        <div class="ev-date">2026-06</div>
-        <h4>不止于问答</h4>
-        <p class="ev-desc">AI 原生智能体协作的另一种可能。让 AI 成为数字世界中的独立行为主体。</p>
-      </div>
-
-      <div class="evidence-card">
-        <div class="ev-date">2026-06</div>
-        <h4>让智能体"收钱"的基建</h4>
-        <p class="ev-desc">支付宝 AI 付已来，但商户端的基础设施还缺关键一环。真正的瓶颈不在客户端。</p>
-      </div>
-
+    </div>
+    <div class="sec-body">
+      <p>AI 元认知的第一课：<span class="highlight">AI 时代真正的破局，不是找到一个更好的工具——是跳出"绑定工具"这个思维本身。</span></p>
+      <p>你需要的不是"2026 年最好用的十个 AI 工具"。你需要的是——知道你想要什么、知道 AI 能给你什么、知道怎么把这两者焊在一起。</p>
     </div>
   </section>
 
-  <!-- About -->
-  <div class="about">
-    <div class="about-item">
+  <div class="divider"></div>
+
+  <!-- ═══ 三、系统 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 03 — 系统</div>
+    <div class="sec-title">人机协作，不是人机奴役</div>
+    <div class="sec-body">
+      <p>旧时代的"人+AI"想象只有两种：要么 AI 变成廉价牛马——降本增效、替代人力——这是中国式务实的惯性。要么人类变成 AI 的奴隶——被取代、被控制——这是硅谷式的焦虑。</p>
+      <p><span class="highlight">两种想象都困在同一个前提里：人和 AI 是主仆关系。</span></p>
+    </div>
+    <div class="three-col">
+      <div class="col-card">
+        <div class="col-icon">🎯</div>
+        <h4>需求驱动</h4>
+        <p>不是"AI 能做什么"。是"我要什么"。先想清楚你的目标——用三句话写下来，不能出现任何工具名。</p>
+      </div>
+      <div class="col-card">
+        <div class="col-icon">⚙️</div>
+        <h4>编排系统</h4>
+        <p>模型 + 给模型用的工具 = 一切。你不需要"最好用的平台"。你需要一个能读数据、能分析、能输出的管道。每一层都可以替换。</p>
+      </div>
+      <div class="col-card">
+        <div class="col-icon">🤝</div>
+        <h4>高度协作</h4>
+        <p>人做判断，AI 做发现。AI 给你信号——你看不到的东西——你基于信号搭建系统。不是 AI 替你思考。是 AI 让你看见，你自己决定。</p>
+      </div>
+    </div>
+    <div class="sec-body">
+      <p>进化系统的逻辑：<span class="highlight">把信号源抓到你自己手里。</span>不依赖平台推荐、不消费二手观点。用 AI 蒸馏出平台不会告诉你的东西。搭自己的判断系统。</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ 四、结果 ═══ -->
+  <section class="section">
+    <div class="sec-num">// 04 — 结果</div>
+    <div class="sec-title">AI 元认知系列</div>
+    <div class="sec-body">
+      <p>以下是我基于火种论和 AI 元认知搭建的第一批系统。更多在路上了。</p>
+    </div>
+
+    <div class="products">
+      <div class="product-card">
+        <div class="prod-tag">系列一</div>
+        <h4>AI 元认知教程</h4>
+        <p class="prod-desc">互联网时代的思维惯性是"找最好的工具然后绑定它"。AI 时代的元认知是——工具不重要，你脑子里那个精准的问题最重要。这套教程以"搭建你自己的蒸馏系统"为实操载体，带你去构建属于 AI 时代的思考框架。不是教你怎么用 WorkBuddy——是教你怎么知道你需要什么。</p>
+        <div class="prod-price">¥29.9</div>
+        <div class="prod-note">PDF + 音频导览 · 一次购买</div>
+        <a href="https://tcnayth32gka.feishu.cn/wiki/SZcRwlpkjiqnAMkm9CmcDmUbn1d" target="_blank" class="prod-btn">预览教程 →</a>
+      </div>
+
+      <div class="product-card">
+        <div class="prod-tag">系列二</div>
+        <h4>个人 Wiki 知识库</h4>
+        <p class="prod-desc">我的个人判断体系——实时更新的飞书 Wiki。内容不只是蒸馏后的博主信号，也可能是我做的深度分析、突然发现的裂缝、推翻自己之前判断的笔记。本质上是我脑子里的东西在往外流。你信我的判断体系，就省去看我筛的过程，直接看结果。</p>
+        <div class="prod-price">¥99<span style="font-size:18px;font-weight:400;"> / 月</span></div>
+        <div class="prod-note">飞书 Wiki 实时更新 · 持续迭代</div>
+        <a href="https://tcnayth32gka.feishu.cn/wiki/RNEwwnlfEicJEakplM9cKzJInlg" target="_blank" class="prod-btn">预览 Wiki →</a>
+      </div>
+    </div>
+
+    <!-- Blog Teaser -->
+    <div class="blog-teaser">
+      <a href="fire/index.html">
+        <span class="fire-icon">🔥</span>
+        <span class="fire-text">
+          <h4>护火手记</h4>
+          <p>火种论 · AI 元认知 · 系统搭建 · 长期更新</p>
+        </span>
+        <span class="fire-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ Contact ═══ -->
+  <div class="contact">
+    <div class="contact-item">
       <h4>📺 内容</h4>
-      <p>抖音 @挤牙膏pro<br>AI 原生个体的进化记录</p>
+      <p>抖音 @挤牙膏pro<br>AI 元认知 · 火种论 · 进化系统</p>
     </div>
-    <div class="about-item">
-      <h4>💡 逻辑</h4>
-      <p style="font-family:'SF Mono','Courier New',Consolas,monospace; font-size:16px; line-height:2;">
-        <span style="color:var(--accent);">认知</span> → 看到信号<br>
-        <span style="color:var(--accent);">证据</span> → 动手验证<br>
-        <span style="color:var(--accent);">报价单</span> → 做成产品
-      </p>
-    </div>
-    <div class="about-item">
+    <div class="contact-item">
       <h4>📬 联系</h4>
       <div class="contact-row">
-        <div class="contact-info">
-          <p>微信扫码添加<br>邮箱：<a href="mailto:1523449073@qq.com" style="color:var(--accent); text-decoration:none;">1523449073@qq.com</a></p>
-        </div>
-        <div class="qr-wrap" style="width:100px;height:100px;"><img src="qrcode.png" alt="微信二维码" style="width:120%;height:120%;margin:-10%;"></div>
+        <p>微信扫码添加<br>或邮箱：<a href="mailto:1523449073@qq.com" style="color:var(--accent); text-decoration:none;">1523449073@qq.com</a></p>
+        <img class="contact-qr" src="qrcode.png" alt="微信二维码">
       </div>
     </div>
   </div>
@@ -631,197 +556,17 @@
 </main>
 
 <footer class="footer">
-  <span>⎔</span> AI原著民·进化系统
+  <span>⎔</span> AI火种论 · 进化系统
 </footer>
 
-<!-- ═══ MODALS ═══ -->
-<div class="modal-overlay" id="modal-report" onclick="closeModalBg(event,'report')">
-  <div class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal('report')">✕</button>
-    <h3>提交分析需求</h3>
-    <div class="modal-price">¥29.9</div>
-    <form onsubmit="return sendToFeishu(event)" id="order-form">
-      <div class="field"><input type="text" name="order_id" placeholder="爱发电订单号" required></div>
-      <div class="field"><input type="text" name="blogger_name" placeholder="博主名字" required></div>
-      <div class="field"><input type="text" name="video_link" placeholder="复制的视频链接（可选）"></div>
-      <div class="field"><input type="text" name="note" placeholder="备注需求（不填默认分析最近5条视频）"></div>
-      <div style="margin:16px 0 8px;font-family:'SF Mono',Courier,monospace;font-size:15px;color:var(--text-dim);">接收方式</div>
-      <div style="display:flex;gap:20px;margin-bottom:14px;">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
-          <input type="radio" name="contact_type" value="email" checked onchange="toggleContactField()">
-          <span style="font-size:16px;">📧 邮箱</span>
-        </label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
-          <input type="radio" name="contact_type" value="wechat" onchange="toggleContactField()">
-          <span style="font-size:16px;">💬 微信</span>
-        </label>
-      </div>
-      <div class="field" id="contact-email"><input type="text" name="email" placeholder="你的邮箱"></div>
-      <div class="field" id="contact-wechat" style="display:none;"><input type="text" name="wechat" placeholder="你的微信号"></div>
-      <button type="submit" class="card-btn btn-fill" style="font-size:16px;width:100%;" id="submit-btn">提交 →</button>
-      <p id="submit-status" style="text-align:center;margin-top:10px;font-size:14px;min-height:20px;"></p>
-    </form>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-custom" onclick="closeModalBg(event,'custom')">
-  <div class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal('custom')">✕</button>
-    <h3>定制 MCP 搭建</h3>
-    <div class="modal-block">
-      <h4>加微信，告诉我你的需求</h4>
-      <div class="qr-ph" style="margin-bottom:8px;">[ 微信二维码 ]</div>
-      <p style="text-align:center;">备注「定制 MCP」+ 赛道</p>
-    </div>
-    <div class="modal-block">
-      <h4>流程</h4>
-      <p style="line-height:2.4;">① 沟通需求 → ② 确认方案 → ③ 付款 → ④ 48h 交付 → ⑤ 维护</p>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-agentpay-ai" onclick="closeModalBg(event,'agentpay-ai')">
-  <div class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal('agentpay-ai')">✕</button>
-    <h3>AI 原生获取</h3>
-    <p style="font-family:'SF Mono',Courier,monospace; font-size:14px; color:var(--text-dim); line-height:1.8; margin-bottom:18px;">
-      AgentPay 正在开发中。届时你的 Agent 可通过 MCP 协议直接调用、支付、获取分析结果，全程无需离开对话。
-    </p>
-    <div class="modal-block">
-      <h4>当前可用：爱发电</h4>
-      <p>前往爱发电付款，获取订单号后回首页填表即可。</p>
-      <a href="https://ifdian.net/a/ttt679" target="_blank" style="display:inline-block;margin-top:8px;color:var(--accent);font-size:16px;">→ 去爱发电</a>
-    </div>
-    <div class="modal-block">
-      <h4>想第一时间体验 AgentPay？</h4>
-      <p>加微信备注「AgentPay 内测」，上线后优先通知。</p>
-    </div>
-  </div>
-</div>
-
-<script>
-  var FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/549945a6-dd5a-4ca3-9c82-eb0d55906048';
-
-  function openModal(n){document.getElementById('modal-'+n).classList.add('active');document.body.style.overflow='hidden';}
-  function closeModal(n){document.getElementById('modal-'+n).classList.remove('active');document.body.style.overflow='';}
-  function closeModalBg(e,n){if(e.target===document.getElementById('modal-'+n))closeModal(n);}
-  function toggleContactField(){
-    var r=document.querySelector('input[name="contact_type"]:checked');
-    var emailEl=document.getElementById('contact-email');
-    var wechatEl=document.getElementById('contact-wechat');
-    var emailInput=emailEl.querySelector('input');
-    var wechatInput=wechatEl.querySelector('input');
-    if(r&&r.value==='email'){
-      emailEl.style.display='block';wechatEl.style.display='none';
-      emailInput.disabled=false;wechatInput.disabled=true;wechatInput.value='';
-    }else{
-      emailEl.style.display='none';wechatEl.style.display='block';
-      emailInput.disabled=true;wechatInput.disabled=false;emailInput.value='';
-    }
-  }
-
-  function sendToFeishu(e){
-    e.preventDefault();
-    var btn = document.getElementById('submit-btn');
-    var status = document.getElementById('submit-status');
-    var f = document.getElementById('order-form');
-    var fd = new FormData(f);
-    var ct = fd.get('contact_type');
-    var cv = ct==='email'?fd.get('email'):fd.get('wechat');
-    var note = fd.get('note') || '（默认：最近5条视频）';
-
-    var text = '📊 新订单\n\n' +
-      '订单号：' + fd.get('order_id') + '\n' +
-      '博主：' + fd.get('blogger_name') + '\n' +
-      '视频链接：' + (fd.get('video_link') || '（未提供）') + '\n' +
-      '备注：' + note + '\n' +
-      '接收方式：' + (ct==='email'?'📧 ':'💬 ') + cv;
-
-    btn.disabled = true;
-    btn.textContent = '发送中…';
-    status.style.color = 'var(--text-dim)';
-    status.textContent = '';
-
-    fetch(FEISHU_WEBHOOK, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({msg_type:'text',content:{text:text}})
-    })
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d.code===0||d.StatusCode===0){
-        status.style.color = 'var(--accent)';
-        status.textContent = '✅ 已收到！48h 内' + (ct==='email'?'邮箱':'微信') + '发送报告';
-        f.reset();
-        document.getElementById('contact-wechat').style.display='none';
-        document.getElementById('contact-email').style.display='block';
-        document.getElementById('contact-email').querySelector('input').disabled=false;
-        document.getElementById('contact-wechat').querySelector('input').disabled=true;
-        btn.textContent = '已提交 ✓';
-        setTimeout(function(){btn.textContent='提交 →';btn.disabled=false;},3000);
-      } else {
-        status.style.color = '#ef4444';
-        status.textContent = '提交失败，请加微信 1523449073@qq.com 直接发需求';
-        btn.disabled = false;
-        btn.textContent = '提交 →';
-      }
-    })
-    .catch(function(){
-      status.style.color = '#ef4444';
-      status.textContent = '网络错误，请加微信 1523449073@qq.com 直接发需求';
-      btn.disabled = false;
-      btn.textContent = '提交 →';
-    });
-    return false;
-  }
-</script>
-
-<!-- ═══ AI Agent 结构化数据（给爬虫看，人不看） ═══ -->
+<!-- ═══ Structured Data ═══ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "AI原著民·进化系统",
-  "alternateName": "AI Native Evolution System",
+  "name": "AI火种论·进化系统",
   "url": "https://looom.top",
-  "description": "AI 原生个体的进化记录。聚焦抖音创作者数据分析，通过 AI 信号系统帮助创作者看清赛道方向。https://ifdian.net/a/ttt679",
-  "provider": {
-    "@type": "Person",
-    "name": "挤牙膏pro",
-    "sameAs": "https://looom.top"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "AI 原生服务",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "单次分析报告",
-        "description": "指定博主评论区信号分析报告，24h 交付",
-        "price": "29.90",
-        "priceCurrency": "CNY"
-      },
-      {
-        "@type": "Offer",
-        "name": "定制 MCP 搭建",
-        "description": "专属信号采集 MCP 搭建与部署",
-        "price": "599.00",
-        "priceCurrency": "CNY"
-      },
-      {
-        "@type": "Offer",
-        "name": "AI 赛道每周信号",
-        "description": "每周 AI 博主评论信号汇总推送",
-        "price": "49.00",
-        "priceCurrency": "CNY"
-      }
-    ]
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "email": "1523449073@qq.com"
-  }
+  "description": "AI 不是工具，是火种。基于火种论和 AI 元认知，搭建人与 AI 高度协作的进化系统。"
 }
 </script>
 
